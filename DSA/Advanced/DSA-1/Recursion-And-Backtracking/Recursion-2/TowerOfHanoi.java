@@ -1,0 +1,24 @@
+// TC -> O(2^N)
+// SC -> O(N)
+public class TowerOfHanoi {
+
+    int[][] res;
+    int idx1;
+
+    private void toh(int n, int t1, int t2, int t3) {
+
+        if (n == 0)
+            return;
+
+        toh(n - 1, t1, t3, t2);
+        res[idx1++] = new int[] { n, t1, t3 };
+        toh(n - 1, t2, t1, t3);
+    }
+
+    public int[][] towerOfHanoi(int A) {
+
+        res = new int[(1 << A) - 1][3];
+        toh(A, 1, 2, 3);
+        return res;
+    }
+}
