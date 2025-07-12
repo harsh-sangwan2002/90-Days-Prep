@@ -1,6 +1,7 @@
-import React, { useEffect, useState, useContext } from 'react'
-import { WatchListContext } from '../context/WatchListProvider';
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeFromWatchList } from '../redux/WatchListSlice';
 
 const WatchListPage = () => {
 
@@ -29,7 +30,8 @@ const WatchListPage = () => {
     }
 
     const [list, setList] = useState([]);
-    const { watchlist, setWatchlist } = useContext(WatchListContext);
+    const watchlist = useSelector(store => store.watchlist);
+    const dispatch = useDispatch();
 
     const selectedGenres = () => {
 
@@ -61,9 +63,7 @@ const WatchListPage = () => {
     }
 
     const handleRemove = (movieId) => {
-        const updatedWatchlist = { ...watchlist };
-        delete updatedWatchlist[movieId];
-        setWatchlist(updatedWatchlist);
+        dispatch(removeFromWatchList(movieId));
     }
 
     useEffect(() => {

@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import MovieCard from '../components/MovieCard'
 import Pagination from '../components/Pagination';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCurrentPage, setMovies, setPages } from '../redux/MovieSlice';
 
 const MovieListPage = () => {
 
-    const [movies, setMovies] = useState([]);
-    const [pages, setPages] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
-    const [currPage, setCurrPage] = useState(1);
+    const movies = useSelector((state) => state.movie.movies);
+    const pages = useSelector((state) => state.movie.pages);
+    const currPage = useSelector((state) => state.movie.currPage);
 
+    const dispatch = useDispatch();
 
     const updatePagesArray = (currentPage) => {
         const totalPages = 500;
@@ -21,7 +24,7 @@ const MovieListPage = () => {
             newPages.push(i);
         }
 
-        setPages(newPages);
+        dispatch(setPages(newPages));
     };
 
     const handlePrev = (page) => {
@@ -29,25 +32,25 @@ const MovieListPage = () => {
             return;
 
         const newPage = currPage - 1;
-        setCurrPage(newPage);
+        dispatch(setCurrentPage(newPage));
         updatePagesArray(newPage);
     }
 
     const handleClick = (page) => {
-        setCurrPage(page);
+        dispatch(setCurrentPage(page));
         updatePagesArray(page);
     }
 
     const handleNext = () => {
         const newPage = currPage + 1;
-        setCurrPage(newPage);
+        dispatch(setCurrentPage(newPage));
         updatePagesArray(newPage);
     }
 
     const fetchMovies = async (page) => {
         const res = await fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=3aec63790d50f3b9fc2efb4c15a8cf99&language=en-US&page=${page}`);
         const data = await res.json();
-        setMovies(data.results);
+        dispatch(setMovies(data.results));
     }
 
     useEffect(() => {

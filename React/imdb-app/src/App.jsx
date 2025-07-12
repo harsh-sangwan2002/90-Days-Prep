@@ -8,9 +8,6 @@ import { useState } from 'react'
 import WatchListProvider from './context/WatchListProvider'
 
 function App() {
-
-  
-
   return (
     <Router>
       <WatchListProvider>

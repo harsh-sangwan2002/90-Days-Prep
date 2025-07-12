@@ -1,19 +1,20 @@
-import React, { useContext } from 'react'
-import { WatchListContext } from '../context/WatchListProvider'
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { removeFromWatchList, setWatchlist } from '../redux/WatchListSlice';
 
 const MovieCard = ({ movie }) => {
 
-    const { watchlist, setWatchlist } = useContext(WatchListContext);
+    const watchlist = useSelector(state => state.watchlist);
+    const dispatch = useDispatch();
+
     const handleClick = () => {
 
         if (watchlist[movie.id]) {
             // Movie already in watchlist, remove it
-            const updatedWatchlist = { ...watchlist };
-            delete updatedWatchlist[movie.id];
-            setWatchlist(updatedWatchlist);
+            dispatch(removeFromWatchList(movie.id));
         } else {
             // Movie not in watchlist, add it
-            setWatchlist({ ...watchlist, [movie.id]: movie });
+            dispatch(setWatchlist({ ...movie }));
         }
     }
 
