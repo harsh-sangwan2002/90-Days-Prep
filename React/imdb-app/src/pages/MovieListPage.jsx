@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import MovieCard from '../components/MovieCard'
 import Pagination from '../components/Pagination';
 
-const MovieListPage = ({ watchlist, setWatchlist }) => {
+const MovieListPage = () => {
 
     const [movies, setMovies] = useState([]);
     const [pages, setPages] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
@@ -58,7 +58,7 @@ const MovieListPage = ({ watchlist, setWatchlist }) => {
         <div className='movie-list'>
             {
                 movies.map((movie, idx) => (
-                    <MovieCard movie={movie} key={idx} watchlist={watchlist} setWatchlist={setWatchlist} />
+                    <MovieCard movie={movie} key={idx} />
                 ))
             }
             <Pagination pages={pages} currPage={currPage} handleClick={handleClick} handleNext={handleNext} handlePrev={handlePrev} />

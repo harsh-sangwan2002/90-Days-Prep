@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
+import { WatchListContext } from '../context/WatchListProvider';
 import { useNavigate } from 'react-router-dom';
 
-const WatchListPage = ({ watchlist, setWatchlist }) => {
+const WatchListPage = () => {
 
     const navigate = useNavigate();
     let genreIds = {
@@ -28,6 +29,7 @@ const WatchListPage = ({ watchlist, setWatchlist }) => {
     }
 
     const [list, setList] = useState([]);
+    const { watchlist, setWatchlist } = useContext(WatchListContext);
 
     const selectedGenres = () => {
 

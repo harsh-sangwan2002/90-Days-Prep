@@ -178,23 +178,24 @@ header ul li {
 }
 
 .genre {
-  display: flex;
-  flex: 1;
-  padding: 1rem;
-  border-radius: 10px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 1em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
   cursor: pointer;
-  font-size: 1.2rem;
-  color: #333;
-  background-color: aqua;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  border: 1px solid #646cff;
+  transition: border-color 0.25s;
 }
 
 .genre:hover {
-  background-color: #e0f7fa;
+  border-color: #646cff;
+}
+
+.genre:focus,
+.genre:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
 }
 
 .watchlist-container .right-section {
