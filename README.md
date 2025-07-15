@@ -8,8 +8,8 @@ This repo will serve as a daily tracker and documentation of my journey.
 
 ## 🎯 Goals
 
-- ✅ **Data Structures & Algorithms (DSA)** – 3 hours daily
-- ✅ **React + Real-World Projects** – Hands-on frontend work (3 hours dailt)
+- ✅ **Data Structures & Algorithms (DSA)** – 2 hours daily
+- ✅ **React + Real-World Projects** – Hands-on frontend work (1 hours daily)
 - ✅ **Operating Systems, DBMS, and CN** – Any One (1 hour daily)
 
 ---
@@ -51,10 +51,8 @@ If you’re preparing for interviews or working on your own 90-day journey, feel
 
 ## 📚 Useful Resources
 
-- [Akshay Saini – Motivation Video](https://www.youtube.com/@akshaymarch7)
-- [Operating System Notes](https://osnoteslink.com)
-- [React Docs](https://reactjs.org/)
-- [LeetCode Patterns](https://seanprashad.com/leetcode-patterns/)
+- [Akshay Saini – Motivation Video](https://www.youtube.com/watch?v=2pG8rgl_omc)
+- [Notes](https://github.com/harsh-sangwan2002/90-Days-Prep/tree/main/Notes)
 
 ---
 
