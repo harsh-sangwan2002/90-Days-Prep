@@ -40,6 +40,13 @@
   padding: 2em;
 }
 
+.counter {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
 .read-the-docs {
   color: #888;
 }
