@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import { memo } from 'react'
 
-const Pagination = ({ pages, handleClick, currPage, handlePrev, handleNext }) => {
+const Pagination = memo(({ pages, handleClick, currPage, handlePrev, handleNext }) => {
 
     return (
         <div className='pagination'>
@@ -13,6 +13,6 @@ const Pagination = ({ pages, handleClick, currPage, handlePrev, handleNext }) =>
             <button onClick={() => handleNext()}>&gt;</button>
         </div>
     )
-}
+})
 
 export default Pagination

@@ -1,23 +1,35 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar'
-import MovieDetailPage from './pages/MovieDetailPage'
-import MovieListPage from './pages/MovieListPage'
-import WatchListPage from './pages/WatchListPage'
-import NotFound from './pages/NotFound'
-import { useState } from 'react'
-import WatchListProvider from './context/WatchListProvider'
+import { lazy, Suspense, useEffect, useState } from 'react'
+
+const Navbar = lazy(() => import('./components/Navbar'))
+const MovieListPage = lazy(() => import('./pages/MovieListPage'))
+const MovieDetailPage = lazy(() => import('./pages/MovieDetailPage'))
+const WatchListPage = lazy(() => import('./pages/WatchListPage'))
+const NotFound = lazy(() => import('./pages/NotFound'))
+const WatchListProvider = lazy(() => import('./context/WatchListProvider'))
 
 function App() {
+
+  // const [component, setComponent] = useState(null);
+
+  // useEffect(() => {
+  //   import('./pages/MovieDetailPage').then(module => {
+  //     setComponent(() => module.default);
+  //   });
+  // }, [])
+
   return (
     <Router>
       <WatchListProvider>
         <Navbar />
-        <Routes>
-          <Route path='/' element={<MovieListPage />} />
-          <Route path='/details' element={<MovieDetailPage />} />
-          <Route path='/watchlist' element={<WatchListPage />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            <Route path='/' element={<MovieListPage />} />
+            <Route path='/details' element={<MovieDetailPage />} />
+            <Route path='/watchlist' element={<WatchListPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
       </WatchListProvider>
     </Router>
   )

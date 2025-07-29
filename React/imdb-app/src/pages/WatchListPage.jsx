@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeFromWatchList } from '../redux/WatchListSlice';
@@ -29,11 +29,24 @@ const WatchListPage = () => {
         37: "Western"
     }
 
+    function sum(a, b) {
+        // Inner function will be re-created on every render
+        // This is not a good practice, but for demonstration:
+        // We can use useCallback to memoize this function
+        function total() {
+            return a + b;
+        }
+        total();
+    }
+    sum(5, 10);
+
     const [list, setList] = useState([]);
     const watchlist = useSelector(store => store.watchlist);
     const dispatch = useDispatch();
 
-    const selectedGenres = () => {
+    const selectedGenres = useMemo(() => {
+
+        console.log("Selected Genres");
 
         let tempGenreList = [1];
 
@@ -41,11 +54,10 @@ const WatchListPage = () => {
             tempGenreList = tempGenreList.concat(movie.genre_ids);
         })
 
-        console.log(tempGenreList);
         return [...new Set(tempGenreList)];
-    }
+    }, [watchlist])
 
-    const handleGenreChange = (genreId) => {
+    const handleGenreChange = useCallback((genreId) => {
 
         if (genreId == 1) {
             setList(Object.values(watchlist));
@@ -54,17 +66,16 @@ const WatchListPage = () => {
 
         const filteredList = Object.values(watchlist).filter(movie => movie.genre_ids.includes(genreId));
         setList([...filteredList]);
-    }
+    }, [watchlist])
 
-    const handleSearch = (e) => {
+    const handleSearch = useCallback((e) => {
         const filteredList = Object.values(watchlist).filter(movie => movie.title.toLowerCase().includes(e.target.value.toLowerCase()))
         setList([...filteredList]);
-        console.log(list);
-    }
+    }, [watchlist])
 
-    const handleRemove = (movieId) => {
+    const handleRemove = useCallback((movieId) => {
         dispatch(removeFromWatchList(movieId));
-    }
+    }, [watchlist, dispatch])
 
     useEffect(() => {
         setList(Object.values(watchlist));
@@ -80,8 +91,8 @@ const WatchListPage = () => {
                 <div className='left-section'>
                     <div className='genre-list'>
                         {
-                            selectedGenres().map(genreId => (
-                                <div onClick={() => handleGenreChange(genreId)} className='genre'>{genreIds[genreId]}</div>
+                            selectedGenres.map(genreId => (
+                                <div key={genreId} onClick={() => handleGenreChange(genreId)} className='genre'>{genreIds[genreId]}</div>
                             ))
                         }
                     </div>
