@@ -1,11 +1,18 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { removeFromWatchList, setWatchlist } from '../redux/WatchListSlice';
+import { useNavigate } from 'react-router-dom';
 
 const MovieCard = ({ movie }) => {
 
     const watchlist = useSelector(state => state.watchlist);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const handleMovie = () => {
+        // Navigate to the movie detail page with the movie ID
+        navigate(`/movie/${movie.id}`);
+    }
 
     const handleClick = () => {
 
@@ -19,7 +26,7 @@ const MovieCard = ({ movie }) => {
     }
 
     return (
-        <div className='movie'>
+        <div className='movie' onClick={handleMovie}>
             <img src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} />
             <h2>{movie.original_title}</h2>
             <button onClick={handleClick}>{watchlist[movie.id] ? "-" : "+"} Add to WatchList</button>

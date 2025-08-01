@@ -5,6 +5,7 @@ const Navbar = lazy(() => import('./components/Navbar'))
 const MovieListPage = lazy(() => import('./pages/MovieListPage'))
 const MovieDetailPage = lazy(() => import('./pages/MovieDetailPage'))
 const WatchListPage = lazy(() => import('./pages/WatchListPage'))
+const SingleMovie = lazy(() => import('./pages/SingleMovie'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 const WatchListProvider = lazy(() => import('./context/WatchListProvider'))
 
@@ -27,6 +28,7 @@ function App() {
             <Route path='/' element={<MovieListPage />} />
             <Route path='/details' element={<MovieDetailPage />} />
             <Route path='/watchlist' element={<WatchListPage />} />
+            <Route path='/movie/:id' element={<SingleMovie />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

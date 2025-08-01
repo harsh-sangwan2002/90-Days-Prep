@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import MovieCard from '../components/MovieCard'
 import Pagination from '../components/Pagination';
 import { useDispatch, useSelector } from 'react-redux';
@@ -34,6 +34,7 @@ const MovieListPage = () => {
         const newPage = currPage - 1;
         dispatch(setCurrentPage(newPage));
         updatePagesArray(newPage);
+        fetchMovies(newPage);
     }
 
     const handleClick = (page) => {

@@ -111,6 +111,7 @@ header ul li {
   border-radius: 10px;
   overflow: hidden;
   gap: 1rem;
+  cursor: pointer;
 }
 
 .movie img {
@@ -119,6 +120,45 @@ header ul li {
 
 .movie button {
   margin-bottom: 1rem;
+}
+
+/* Single Movie Page */
+.movie-details {
+  margin: 5rem auto;
+  max-width: 70rem;
+  display: flex;
+  gap: 2rem;
+  background-color: #1e1e1e;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.movie-details img {
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.movie-details .top-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.movie-details .right-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Movie Detail */
+.movie-detail-page {
+  margin: 2rem auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
 }
 
 /* Pagination */
