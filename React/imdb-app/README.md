@@ -4,6 +4,10 @@ This document summarizes the key concepts and implementation steps discussed dur
 
 ---
 
+## Live Demo
+
+[Live Demo](https://imdb-app-harsh.vercel.app/)
+
 ## 🎯 Project Overview
 
 The objective was to build an **Internet Movie Database (IMDB) clone** that allows users to:
