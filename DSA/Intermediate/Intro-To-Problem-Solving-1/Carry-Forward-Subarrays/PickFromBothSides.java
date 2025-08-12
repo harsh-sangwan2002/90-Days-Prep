@@ -1,4 +1,4 @@
-// TC -> (N)
+// TC -> O(N)
 // SC -> O(N)
 public class PickFromBothSides {
 
@@ -29,8 +29,8 @@ public class PickFromBothSides {
 
         for (int i = 1; i < B; i++) {
 
-            int currSum = pre[i - 1] + suf[n - B + i];
-            max = Math.max(max, currSum);
+            int curr = pre[i - 1] + suf[n - B + i];
+            max = Math.max(max, curr);
         }
 
         return max;
