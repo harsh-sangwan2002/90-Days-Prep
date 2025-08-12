@@ -1,4 +1,4 @@
-// TC -> (sqrt(N))
+// TC -> O(sqrt(N))
 // SC -> O(1)
 public class PerfectNumbers {
 
@@ -9,15 +9,15 @@ public class PerfectNumbers {
 
         int sum = 1;
 
-        for (int n = 2; n * n <= A; n++) {
+        for (int i = 2; i <= Math.sqrt(A); i++) {
 
-            if (A % n == 0) {
+            if (A % i == 0) {
 
-                if (n * n == A)
-                    sum += n;
+                if (i * i == A)
+                    sum += i;
 
                 else
-                    sum += n + (A / n);
+                    sum += i + (A / i);
             }
         }
 
