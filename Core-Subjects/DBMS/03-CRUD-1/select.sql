@@ -1,36 +1,38 @@
-SELECT * From film;
-/*
-INSERT INTO table_name (col names)
-VALUES (,,,,)
-SQL is not case sensitive
-*/
-INSERT into film (title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating, special_features)
-VALUES ('The Dark Knight','Batman fights the Joker', 2008, 1, 3, 4.99, 152, 19.99, 'PG-13', 'Trailers');
+use sakila;
 
-select title as film_name, film_id as id from film;
+select count(*) from film;
 
--- DISTINCT
+select * from film;
+
+-- * denotes all the rows
+
+-- Insert new row into a table
+Insert into film (title, description, release_year, language_id, rental_duration, rental_rate, length, rating, replacement_cost, special_features)
+values ('Mission Impossible', 'Ethan Hunt Movie', 2000, 1, 6, 1.12, 90, 'PG', 21.22, 'Deleted Scenes');
+
+select film_id as id from film;
+
+select title from film;
+
 select distinct rating from film;
 
--- Constants
-select 1 from film;
+select title, 'Hello World' from film;
 
-select title, length/60 as duration_in_hours from film;
-select title, floor(length/60) as duration_in_hours from film;
-select title, round(length/60) as duration_in_hours from film;
+select count(1) from film;
 
--- Transfer data from one table to another
-create table city_copy(
-name varchar(100));
-
-insert into city_copy
+-- create a replica of a table
+create table city_copy
 select city from city;
 
-select * from city_copy;
-
 select title, rating from film
-where rating = "PG-13";
+where rating = 'G';
+
+select title from film
+where title like 'a%r';
 
 -- PG-13, G, PG
-select title, rating from film
+select * from film
 where rating In ('PG-13', 'G', 'PG');
+
+select * from film
+where rating = 'PG-13' || release_year = 2006;

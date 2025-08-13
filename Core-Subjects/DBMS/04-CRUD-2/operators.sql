@@ -1,24 +1,22 @@
-select * from film
-where release_year>=2007 and release_year<=2009;
+use sakila;
 
--- Including both the numbers
+select * from film;
+
+select * from film
+where release_year >= 2007 and release_year <= 2009;
+
+-- between
 select * from film
 where release_year between 2007 and 2009;
 
--- Using like
+-- like
 select * from film
 where title like '%love%';
 
--- Is null and 
-
--- limit and offset
-select * from film
-limit 25 offset 101;
-
--- Update
+-- update
 update film
-set title = 'skylags'
-where film_id = 1;  
-
-select * from film
+set title = 'Skylags'
 where film_id = 1;
+
+-- delete, going to delete all the rows from the table
+delete from film;
