@@ -5,6 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List</title>
+    <style>
+        .detail-list.first>li {
+            color: red;
+        }
+
+        #roman.list {
+            border: 1px solid red;
+        }
+    </style>
 </head>
 
 <body>
@@ -14,7 +23,7 @@
         <li>Third</li>
     </ul>
 
-    <ol>
+    <ol class="detail-list first">
         <li>First</li>
         <ol type="a">
             <li>Item 1</li>
@@ -25,13 +34,13 @@
         <li>Third</li>
     </ol>
 
-    <ol type="a">
+    <ol type="a" class="detail-list">
         <li>First</li>
         <li>Second</li>
         <li>Third</li>
     </ol>
 
-    <ol type="I">
+    <ol type="I" id="roman" class="list">
         <li>First</li>
         <li>Second</li>
         <li>Third</li>
