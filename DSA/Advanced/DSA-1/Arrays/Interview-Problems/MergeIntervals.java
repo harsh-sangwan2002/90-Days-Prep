@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 // TC -> O(N)
 // SC -> O(N)
-
 public class MergeIntervals {
 
     public ArrayList<Interval> insert(ArrayList<Interval> intervals, Interval newInterval) {

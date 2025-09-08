@@ -1,6 +1,5 @@
 // TC -> O(log N)
 // SC -> O(1)
-
 public class GoodDays {
 
     private boolean checkBit(int n) {

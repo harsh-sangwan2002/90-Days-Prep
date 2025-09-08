@@ -1,6 +1,5 @@
 // TC -> O(1)
 // SC -> O(1)
-
 public class CheckBit {
 
     public int solve(int A, int B) {

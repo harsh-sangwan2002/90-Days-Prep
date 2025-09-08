@@ -1,6 +1,5 @@
 // TC -> O(N)
 // SC -> O(N)
-
 public class LongestPalindromicSubstring {
 
     public String longestPalindrome(String A) {

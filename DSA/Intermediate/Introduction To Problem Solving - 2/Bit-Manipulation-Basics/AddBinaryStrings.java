@@ -1,6 +1,5 @@
 // TC -> O(Max(N,M))
 // SC -> O(Max(N,M))
-
 public class AddBinaryStrings {
 
     public String addBinary(String A, String B) {

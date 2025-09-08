@@ -1,6 +1,5 @@
 // TC -> O(N)
 // SC -> O(1)
-
 public class EquilibriumIndex {
 
     public int solve(int[] A) {

@@ -1,6 +1,5 @@
 // TC -> O(N)
 // SC -> O(1)
-
 public class MainDiagonalSum {
 
     // DO NOT MODIFY THE ARGUMENTS WITH "final" PREFIX. IT IS READ ONLY

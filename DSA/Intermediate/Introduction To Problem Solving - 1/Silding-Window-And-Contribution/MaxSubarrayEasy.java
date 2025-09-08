@@ -1,6 +1,5 @@
 // TC -> O(N)
 // SC -> O(1)
-
 public class MaxSubarrayEasy {
 
     public int maxSubarray(int A, int B, int[] C) {

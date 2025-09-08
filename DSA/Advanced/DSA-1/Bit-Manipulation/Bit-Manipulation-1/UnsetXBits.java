@@ -1,6 +1,5 @@
 // TC -> O(N)
 // SC -> O(1)
-
 public class UnsetXBits {
 
     private boolean checkBit(long n, int pos) {

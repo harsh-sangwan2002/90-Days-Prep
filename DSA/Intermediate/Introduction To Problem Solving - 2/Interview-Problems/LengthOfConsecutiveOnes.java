@@ -1,6 +1,5 @@
 // TC -> O(N)
 // SC -> O(1)
-
 public class LengthOfConsecutiveOnes {
 
     public int solve(String A) {

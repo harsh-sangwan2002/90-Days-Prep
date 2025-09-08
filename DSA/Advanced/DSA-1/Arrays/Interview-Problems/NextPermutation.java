@@ -1,6 +1,5 @@
 // TC -> O(N)
 // SC -> O(1)
-
 public class NextPermutation {
 
     private void swap(int[] A, int x, int y) {

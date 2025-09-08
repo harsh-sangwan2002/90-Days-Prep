@@ -1,6 +1,5 @@
 // TC -> O(Max(N,M))
 // SC -> O(1)
-
 public class SearchInMatrix {
 
     public int solve(int[][] A, int B) {

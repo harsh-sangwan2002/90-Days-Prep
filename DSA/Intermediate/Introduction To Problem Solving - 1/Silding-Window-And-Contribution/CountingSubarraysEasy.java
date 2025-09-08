@@ -1,6 +1,5 @@
 // TC -> O(N^2)
 // SC -> O(1)
-
 public class CountingSubarraysEasy {
 
     public int solve(int[] A, int B) {

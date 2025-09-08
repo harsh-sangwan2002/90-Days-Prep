@@ -1,8 +1,7 @@
-// TC -> O(N)
-// SC -> O(N)
-
 import java.util.Stack;
 
+// TC -> O(N)
+// SC -> O(N)
 public class ReverseTheString {
 
     public String solve(String A) {

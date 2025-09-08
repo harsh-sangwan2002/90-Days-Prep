@@ -1,6 +1,5 @@
 // TC -> O(N)
 // SC -> O(N)
-
 public class RangeSumQuery {
 
     public long[] rangeSum(int[] A, int[][] B) {

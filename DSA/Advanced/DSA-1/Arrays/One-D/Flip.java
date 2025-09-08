@@ -1,6 +1,5 @@
 // TC -> O(N)
 // SC -> O(1)
-
 public class Flip {
 
     public int[] flip(String A) {

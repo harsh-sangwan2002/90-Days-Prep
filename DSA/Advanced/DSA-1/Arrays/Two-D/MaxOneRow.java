@@ -1,6 +1,5 @@
 // TC -> O(N)
 // SC -> O(1)
-
 public class MaxOneRow {
 
     public int solve(int[][] A) {

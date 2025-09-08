@@ -1,6 +1,5 @@
 // TC -> O(N)
 // SC -> O(N)
-
 public class SimpleReverse {
 
     public String solve(String A) {

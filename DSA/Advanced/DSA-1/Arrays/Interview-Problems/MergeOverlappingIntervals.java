@@ -3,7 +3,6 @@ import java.util.Collections;
 
 // TC -> O(N log N)
 // SC -> O(N)
-
 public class MergeOverlappingIntervals {
 
     public ArrayList<Interval> merge(ArrayList<Interval> intervals) {

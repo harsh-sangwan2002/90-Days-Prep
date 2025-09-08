@@ -1,6 +1,5 @@
 // TC -> O(log N)
 // SC -> O(1)
-
 public class HelpFromSam {
 
     private boolean checkBit(int n) {

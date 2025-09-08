@@ -1,6 +1,5 @@
 // TC -> O(N)
 // SC -> O(N)
-
 public class RainWaterTrapped {
 
     // DO NOT MODIFY THE ARGUMENTS WITH "final" PREFIX. IT IS READ ONLY

@@ -1,6 +1,5 @@
 // TC -> O(N*M)
 // SC -> O(1)
-
 public class MatrixScalerProduct {
 
     public int[][] solve(int[][] A, int B) {

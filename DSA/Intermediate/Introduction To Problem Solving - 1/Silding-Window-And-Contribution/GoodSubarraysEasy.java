@@ -1,6 +1,5 @@
 // TC -> O(N)
 // SC -> O(1)
-
 public class GoodSubarraysEasy {
 
     public int solve(int[] A, int B) {

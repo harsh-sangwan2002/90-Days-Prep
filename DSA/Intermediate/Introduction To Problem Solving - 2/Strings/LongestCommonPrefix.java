@@ -1,6 +1,5 @@
 // TC -> O(N)
 // SC -> O(N)
-
 public class LongestCommonPrefix {
 
     public String longestCommonPrefix(String[] A) {

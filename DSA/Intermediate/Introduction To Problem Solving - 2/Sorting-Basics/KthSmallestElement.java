@@ -1,8 +1,7 @@
-// TC -> O(N*log(N))
-// SC -> O(1)
-
 import java.util.Arrays;
 
+// TC -> O(N*log(N))
+// SC -> O(1)
 public class KthSmallestElement {
 
     // DO NOT MODIFY THE ARGUMENTS WITH "final" PREFIX. IT IS READ ONLY

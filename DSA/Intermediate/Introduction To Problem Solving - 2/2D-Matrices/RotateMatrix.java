@@ -1,6 +1,5 @@
 // TC -> O(N^2)
 // SC -> O(1)
-
 public class RotateMatrix {
 
     private void transpose(int[][] A) {

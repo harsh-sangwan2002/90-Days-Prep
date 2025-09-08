@@ -1,8 +1,7 @@
-// TC -> O(N*log(N))
-// SC -> O(1)
-
 import java.util.Arrays;
 
+// TC -> O(N*log(N))
+// SC -> O(1)
 public class ElementsRemoval {
 
     public int solve(int[] A) {

@@ -1,6 +1,5 @@
 // TC -> O(1)
 // SC -> O(1)
-
 public class UnsetBit {
 
     private boolean checkBit(int n, int pos) {

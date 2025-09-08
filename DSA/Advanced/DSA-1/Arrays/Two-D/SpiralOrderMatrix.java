@@ -1,6 +1,5 @@
 // TC -> O(N^2) 
 // SC -> O(1)
-
 public class SpiralOrderMatrix {
 
     public int[][] generateMatrix(int A) {

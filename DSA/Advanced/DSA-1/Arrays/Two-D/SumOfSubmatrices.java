@@ -1,6 +1,5 @@
 // TC -> O(N*M)
 // SC -> O(1)
-
 public class SumOfSubmatrices {
 
     public int solve(int[][] A) {

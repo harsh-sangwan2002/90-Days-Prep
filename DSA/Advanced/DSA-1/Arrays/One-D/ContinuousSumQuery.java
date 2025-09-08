@@ -1,6 +1,5 @@
 // TC -> O(N+Q)
 // SC -> O(N)
-
 public class ContinuousSumQuery {
 
     public int[] solve(int A, int[][] B) {

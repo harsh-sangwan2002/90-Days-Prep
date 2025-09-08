@@ -1,6 +1,5 @@
 // TC -> O(N)
 // SC -> O(1)
-
 public class FirstMissingInteger {
 
     public int firstMissingPositive(int[] A) {
