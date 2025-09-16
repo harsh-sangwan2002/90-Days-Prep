@@ -1,0 +1,42 @@
+// TC -> O(N)
+// SC -> O(1)
+public class PartitionList {
+
+    public ListNode partition(ListNode A, int B) {
+
+        ListNode d1 = new ListNode(-1);
+        ListNode h1 = d1, t1 = d1;
+
+        ListNode d2 = new ListNode(-1);
+        ListNode h2 = d2, t2 = d2;
+
+        ListNode temp = A;
+
+        while (temp != null) {
+
+            ListNode node = new ListNode(temp.val);
+
+            if (temp.val < B) {
+                t1.next = node;
+                t1 = t1.next;
+            }
+
+            else {
+                t2.next = node;
+                t2 = t2.next;
+            }
+
+            temp = temp.next;
+        }
+
+        if (h1.next == null) {
+            h1 = h2.next;
+            return h1;
+        }
+
+        else
+            t1.next = h2.next;
+
+        return h1.next;
+    }
+}
