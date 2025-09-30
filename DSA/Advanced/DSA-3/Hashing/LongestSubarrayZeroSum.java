@@ -1,0 +1,38 @@
+import java.util.HashMap;
+
+// TC -> O(N)
+// SC -> O(N)
+public class LongestSubarrayZeroSum {
+
+    public int solve(int[] A) {
+
+        int len = 0, n = A.length;
+        HashMap<Long, Integer> map = new HashMap<>();
+        long[] pre = new long[n];
+
+        for (int i = 0; i < n; i++) {
+
+            if (i == 0)
+                pre[i] = (long) A[i];
+
+            else
+                pre[i] = pre[i - 1] + A[i];
+
+            if (pre[i] == 0)
+                len = Math.max(len, i + 1);
+        }
+
+        for (int i = 0; i < n; i++) {
+
+            long val = pre[i];
+
+            if (map.containsKey(val))
+                len = Math.max(len, i - map.get(val));
+
+            else
+                map.put(val, i);
+        }
+
+        return len;
+    }
+}
