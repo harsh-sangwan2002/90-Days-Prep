@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 2</title>
+</head>
+
+<body>
+    <div>
+        <span class="var1">5</span>
+        <span class="operator">x</span>
+        <span class="var2">10</span>
+        <span>=</span>
+        <span class="result"></span>
+    </div>
+
+    <button>Calculate</button>
+</body>
+
+<script>
+    const var1 = document.querySelector('.var1');
+    const var2 = document.querySelector('.var2');
+    const operator = document.querySelector('.operator');
+    const result = document.querySelector('.result');
+
+    document.querySelector('button').addEventListener('click', () => {
+        switch (operator.textContent) {
+            case 'x':
+                result.textContent = parseFloat(var1.textContent) * parseFloat(var2.textContent);
+                break;
+            case '+':
+                result.textContent = parseFloat(var1.textContent) + parseFloat(var2.textContent);
+                break;
+            case '-':
+                result.textContent = parseFloat(var1.textContent) - parseFloat(var2.textContent);
+                break;
+            case '/':
+                result.textContent = parseFloat(var1.textContent) / parseFloat(var2.textContent);
+                break;
+            default:
+                result.textContent = 'Unknown operator';
+        }
+    });
+</script>
+
+</html>
