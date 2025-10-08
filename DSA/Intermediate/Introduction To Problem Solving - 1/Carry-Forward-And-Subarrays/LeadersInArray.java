@@ -1,6 +1,5 @@
 // TC -> O(N)
 // SC -> O(N)
-
 public class LeadersInArray {
 
     public int[] solve(int[] A) {

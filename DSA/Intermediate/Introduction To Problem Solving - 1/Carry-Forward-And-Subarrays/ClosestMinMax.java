@@ -1,6 +1,5 @@
 // TC -> O(N)
 // SC -> O(1)
-
 public class ClosestMinMax {
 
     private int[] findMinMax(int[] A) {

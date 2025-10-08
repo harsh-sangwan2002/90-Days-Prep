@@ -1,6 +1,5 @@
 // TC -> O(N)
 // SC -> O(N)
-
 public class Subarray {
 
     public int[] solve(int[] A, int B, int C) {

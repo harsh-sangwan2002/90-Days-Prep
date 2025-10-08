@@ -1,6 +1,5 @@
 // TC -> O(N)
 // SC -> O(1)
-
 public class SpecialSubsequences {
 
     public int solve(String A) {

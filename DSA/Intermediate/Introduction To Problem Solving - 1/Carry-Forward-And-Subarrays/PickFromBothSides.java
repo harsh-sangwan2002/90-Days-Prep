@@ -1,6 +1,5 @@
 // TC -> O(N)
 // SC -> O(N)
-
 public class PickFromBothSides {
 
     public int solve(int[] A, int B) {

@@ -1,6 +1,5 @@
 // TC -> O(N^3)
 // SC -> O(N^2)
-
 public class GenerateAllSubarrays {
 
     public int[][] solve(int[] A) {
