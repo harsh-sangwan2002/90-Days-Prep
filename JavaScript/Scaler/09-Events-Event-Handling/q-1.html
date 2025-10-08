@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 1</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .heading {
+            text-align: center;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        select {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .movies {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .movie {
+            position: relative;
+            background: chocolate;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 200px;
+            min-height: 150px;
+            margin: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .remove-movie {
+            cursor: pointer;
+            position: absolute;
+            right: -10px;
+            top: -10px;
+            background-color: #ccc;
+            border-radius: 100%;
+            padding: 8px;
+        }
+
+        .movie-title {
+            padding: 20px;
+            background-color: black;
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .movie-price {
+            padding: 20px;
+            font-size: 16px;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="heading">BookMyShow</h1>
+        <select name="" id="">
+            <option value="action">Action</option>
+            <option value="horror">Horror</option>
+            <option value="comedy">Comedy</option>
+            <option value="romance">Romance</option>
+        </select>
+        <div class="movies">
+            <div class="movie">
+                <div class="remove-movie">X</div>
+                <p class="movie-title">Action: Movie 1</p>
+                <p class="movie-price">Rs 100</p>
+            </div>
+            <div class="movie">
+                <div class="remove-movie">X</div>
+                <p class="movie-title">Comedy: Movie 2</p>
+                <p class="movie-price">Rs 100</p>
+            </div>
+            <div class="movie">
+                <div class="remove-movie">X</div>
+                <p class="movie-title">Action: Movie 3</p>
+                <p class="movie-price">Rs 100</p>
+            </div>
+            <div class="movie">
+                <div class="remove-movie">X</div>
+                <p class="movie-title">Action: Movie 4</p>
+                <p class="movie-price">Rs 100</p>
+            </div>
+            <div class="movie">
+                <div class="remove-movie">X</div>
+                <p class="movie-title">Comedy: Movie 5</p>
+                <p class="movie-price">Rs 100</p>
+            </div>
+            <div class="movie">
+                <div class="remove-movie">X</div>
+                <p class="movie-title">Horror: Movie 6</p>
+                <p class="movie-price">Rs 100</p>
+            </div>
+            <div class="movie">
+                <div class="remove-movie">X</div>
+                <p class="movie-title">Horror: Movie 7</p>
+                <p class="movie-price">Rs 100</p>
+            </div>
+            <div class="movie">
+                <div class="remove-movie">X</div>
+                <p class="movie-title">Romance: Movie 8</p>
+                <p class="movie-price">Rs 100</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+
+    const select = document.querySelector("select");
+    const movies = document.querySelectorAll(".movie");
+    const removeMovieButtons = document.querySelectorAll(".remove-movie");
+
+    removeMovieButtons.forEach(button => {
+        button.addEventListener('click', e => {
+            const movie = e.target.parentElement;
+            movie.remove();
+        })
+    })
+
+    select.addEventListener('change', e => {
+        const genre = e.target.value;
+        movies.forEach(movie => {
+            if (movie.querySelector(".movie-title").textContent.toLowerCase().includes(genre)) {
+                movie.style.display = "block";
+            } else {
+                movie.style.display = "none";
+            }
+        })
+    })
+</script>
+
+</html>
