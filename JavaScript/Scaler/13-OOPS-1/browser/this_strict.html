@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this Strict Mode</title>
+</head>
+
+<body>
+</body>
+
+<script>
+    "use strict";
+    console.log(this); // window
+
+    function fn() {
+        console.log(this); // undefined
+    }
+    fn();
+
+    let obj = {
+        name: "John",
+        test: function () {
+            console.log(this); // obj
+            function inner() {
+                console.log(this); // undefined
+            }
+            inner();
+        }
+    }
+    obj.test();
+
+    let newFn = obj.test;
+    newFn(); // undefined
+
+    let obj2 = {
+        name: "Jane"
+    }
+    obj2.test = obj.test;
+    obj2.test(); // obj2
+</script>
+
+</html>

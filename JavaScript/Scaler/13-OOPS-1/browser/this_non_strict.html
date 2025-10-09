@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this Non-Strict</title>
+</head>
+
+<body>
+</body>
+
+<script>
+    console.log(this); // window
+
+    function fn() {
+        console.log(this); // window
+    }
+    fn();
+
+    let obj = {
+        name: "John",
+        test: function () {
+            console.log(this);
+            function inner() {
+                console.log(this); // window
+            }
+            inner();
+
+            const arrow = () => {
+                console.log(this); // obj
+            }
+            arrow();
+        },
+        arrow: () => {
+            console.log(this); // obj
+        }
+    }
+    obj.test(); // obj
+    obj.arrow(); // window
+
+    let newFn = obj.test;
+    // newFn(); // window
+
+    let obj2 = {
+        name: "Jane"
+    }
+    obj2.test = obj.test;
+    // obj2.test(); // obj2
+
+    const obj3 = {
+        name: "John",
+        test: function () {
+            function outer() {
+                const inner = () => {
+                    console.log(this); // window
+                }
+                inner();
+            }
+            outer();
+        }
+    }
+    obj3.test();
+</script>
+
+</html>
