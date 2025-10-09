@@ -1,5 +1,4 @@
 package MajorityElement;
-
 import java.util.Arrays;
 
 // TC -> O(N*log(N))
