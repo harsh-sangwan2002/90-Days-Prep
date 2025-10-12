@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Coding - 1</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .stars-container {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            gap: 1rem;
+        }
+
+        .star {
+            font-size: 3rem;
+            cursor: pointer;
+        }
+
+        .selected {
+            color: gold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Rate this Product</h1>
+    <div class="stars-container">
+        <span class="star" data-index="1">&#9733;</span>
+        <span class="star" data-index="2">&#9733;</span>
+        <span class="star" data-index="3">&#9733;</span>
+        <span class="star" data-index="4">&#9733;</span>
+        <span class="star" data-index="5">&#9733;</span>
+    </div>
+    <h2>Ratings: <span class="rating">0</span></h2>
+</body>
+
+<script>
+    const starsContainer = document.querySelector('.stars-container');
+
+    starsContainer.addEventListener('click', e => {
+
+        if (e.target.classList.contains('star')) {
+            const rating = e.target.getAttribute('data-index');
+            document.querySelector('.rating').innerText = rating;
+
+            for (let i = 0; i < rating; i++)
+                starsContainer.children[i].classList.add('selected');
+
+            for (let i = rating; i < starsContainer.children.length; i++)
+                starsContainer.children[i].classList.remove('selected');
+        }
+    })
+
+    starsContainer.addEventListener('mouseover', e => {
+        if (e.target.classList.contains('star')) {
+            const rating = e.target.getAttribute('data-index');
+
+            for (let i = 0; i < rating; i++)
+                starsContainer.children[i].classList.add('selected');
+
+            for (let i = rating; i < starsContainer.children.length; i++)
+                starsContainer.children[i].classList.remove('selected');
+        }
+    })
+
+    starsContainer.addEventListener('mouseout', e => {
+        const currentRating = document.querySelector('.rating').innerText;
+
+        for (let i = 0; i < currentRating; i++)
+            starsContainer.children[i].classList.add('selected');
+
+        for (let i = currentRating; i < starsContainer.children.length; i++)
+            starsContainer.children[i].classList.remove('selected');
+    })
+</script>
+
+</html>
