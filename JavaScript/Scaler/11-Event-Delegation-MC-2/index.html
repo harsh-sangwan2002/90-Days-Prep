@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nested Comments</title>
+    <style>
+        .container,
+        .comment,
+        .new {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .comment {
+            padding: 10px;
+            border: 2px solid #ccc;
+            gap: 5px;
+            position: relative;
+        }
+
+        .comment,
+        .new {
+            margin-left: 50px;
+        }
+
+        .comment button {
+            width: 50px;
+        }
+
+        .new {
+            align-items: flex-end;
+        }
+
+        textarea {
+            width: 100%;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+    </div>
+</body>
+
+<script>
+    const comments = [
+        {
+            id: 1,
+            title: "1. Hi, how are you doing?",
+            replies: [
+                {
+                    id: 2,
+                    title: "2. I'm good, thanks! How about you?",
+                    replies: [
+                        {
+                            id: 3,
+                            title: "3. Doing well, just busy with work.",
+                            replies: []
+                        }
+                    ]
+                },
+                {
+                    id: 4,
+                    title: "4. Hey! Long time no see.",
+                    replies: []
+                }
+            ]
+        },
+        {
+            id: 5,
+            title: "5. Hello everyone!",
+            replies: []
+        }
+    ]
+    const container = document.querySelector('.container');
+
+    const addNewReply = (commentList, parentId, newReplyId, newReplyTitle) => {
+        commentList?.forEach(comment => {
+            if (comment.id === parentId) {
+                if (!comment.replies) {
+                    comment.replies = [];
+                }
+                comment.replies.unshift({
+                    id: newReplyId,
+                    title: newReplyTitle,
+                    replies: []
+                });
+            } else {
+                addNewReply(comment.replies, parentId, newReplyId, newReplyTitle);
+            }
+        })
+    }
+
+    const createCommentCard = (parentRef, id, title) => {
+        const newCardRef = document.createElement('div');
+        newCardRef.className = 'comment';
+        newCardRef.id = id;
+        newCardRef.innerHTML = `
+            <div class="title">${title}</div>
+            <button class="reply">Reply</button>
+            <div class="new hide">
+                <textarea name="" id="" placeholder="Enter your comment"></textarea>
+                <button class="send">Send</button>
+            </div>
+        `
+        parentRef.appendChild(newCardRef);
+        return newCardRef;
+    }
+
+    const render = () => {
+        container.innerHTML = '';
+        comments.forEach(comment => {
+            const parentRef = createCommentCard(container, comment.id, comment.title);
+            comment.replies.forEach(reply => {
+                const childRef = createCommentCard(parentRef, reply.id, reply.title);
+                reply.replies.forEach(nestedReply => {
+                    createCommentCard(childRef, nestedReply.id, nestedReply.title);
+                })
+            })
+        })
+    }
+
+    container.addEventListener('click', e => {
+        if (e.target.classList.contains('reply')) {
+            const newCommentRef = e.target.nextElementSibling;
+            newCommentRef.classList.toggle('hide');
+        }
+
+        if (e.target.classList.contains('send')) {
+            const parentCommentRef = e.target.closest('.comment');
+            const textareaRef = e.target.previousElementSibling;
+            const newTitle = textareaRef.value.trim();
+            const parentId = parentCommentRef.id;
+            const newReplyId = Math.random();
+            addNewReply(comments, parentId, newReplyId, newTitle);
+            render();
+        }
+    })
+
+    render();
+</script>
+
+</html>
