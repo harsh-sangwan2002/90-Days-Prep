@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Throttling</title>
+    <style>
+        html,
+        body {
+            height: 3000px;
+        }
+
+        .status {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="status">Scroll Position: <span id="scrollPosition">0</span></div>
+</body>
+
+<script>
+    var lastScrollTime = 0;
+
+    const throttleFn = (fn, delay) => {
+
+        let flag = true;
+
+        return function (...args) {
+
+            if (!flag) return;
+
+            flag = false;
+
+            setTimeout(() => {
+                fn.apply(this, args);
+                flag = true;
+            }, delay)
+        }
+    }
+
+    function updateScrollPosition() {
+        document.getElementById('scrollPosition').textContent = window.scrollY;
+    }
+    const throttledUpdateScrollPosition = throttleFn(updateScrollPosition, 500);
+    window.addEventListener('scroll', throttledUpdateScrollPosition);
+</script>
+
+</html>
