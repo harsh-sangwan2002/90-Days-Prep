@@ -15,7 +15,7 @@
 
         .comment {
             padding: 10px;
-            border: 2px solid #ccc;
+            border-left: 1px solid #ccc;
             gap: 5px;
             position: relative;
         }
@@ -30,7 +30,7 @@
         }
 
         .new {
-            align-items: flex-end;
+            align-items: flex-start;
         }
 
         textarea {
@@ -80,66 +80,51 @@
     ]
     const container = document.querySelector('.container');
 
-    const addNewReply = (commentList, parentId, newReplyId, newReplyTitle) => {
-        commentList?.forEach(comment => {
-            if (comment.id === parentId) {
-                if (!comment.replies) {
-                    comment.replies = [];
-                }
-                comment.replies.unshift({
-                    id: newReplyId,
-                    title: newReplyTitle,
-                    replies: []
-                });
-            } else {
-                addNewReply(comment.replies, parentId, newReplyId, newReplyTitle);
-            }
-        })
-    }
+    function createCommentCard(parentRef, id, title) {
 
-    const createCommentCard = (parentRef, id, title) => {
-        const newCardRef = document.createElement('div');
-        newCardRef.className = 'comment';
-        newCardRef.id = id;
-        newCardRef.innerHTML = `
-            <div class="title">${title}</div>
+        const commentCard = document.createElement('div');
+        commentCard.classList.add('comment');
+        commentCard.id = id;
+        commentCard.innerHTML = `
+        <div class="title">${title}</div>
             <button class="reply">Reply</button>
             <div class="new hide">
-                <textarea name="" id="" placeholder="Enter your comment"></textarea>
+                <textarea placeholder="Enter your comment"></textarea>
                 <button class="send">Send</button>
             </div>
-        `
-        parentRef.appendChild(newCardRef);
-        return newCardRef;
+        `;
+
+        parentRef.appendChild(commentCard);
+        return commentCard;
     }
 
-    const render = () => {
-        container.innerHTML = '';
-        comments.forEach(comment => {
-            const parentRef = createCommentCard(container, comment.id, comment.title);
-            comment.replies.forEach(reply => {
-                const childRef = createCommentCard(parentRef, reply.id, reply.title);
-                reply.replies.forEach(nestedReply => {
-                    createCommentCard(childRef, nestedReply.id, nestedReply.title);
-                })
-            })
+    function renderComments(comments, parentRef) {
+        comments?.forEach(comment => {
+            const commentCard = createCommentCard(parentRef, comment.id, comment.title);
+
+            if (comment?.replies) renderComments(comment.replies, commentCard);
         })
+    }
+
+    function render() {
+        container.innerHTML = '';
+        renderComments(comments, container);
     }
 
     container.addEventListener('click', e => {
         if (e.target.classList.contains('reply')) {
-            const newCommentRef = e.target.nextElementSibling;
-            newCommentRef.classList.toggle('hide');
+            const commentRef = e.target.closest('.comment');
+            const newRef = commentRef.querySelector('.new');
+            newRef.classList.toggle('hide');
         }
 
         if (e.target.classList.contains('send')) {
-            const parentCommentRef = e.target.closest('.comment');
-            const textareaRef = e.target.previousElementSibling;
-            const newTitle = textareaRef.value.trim();
-            const parentId = parentCommentRef.id;
-            const newReplyId = Math.random();
-            addNewReply(comments, parentId, newReplyId, newTitle);
-            render();
+            const commentRef = e.target.closest('.comment');
+            const newReplyTitle = commentRef.querySelector('textarea').value;
+            const parentId = commentRef.id;
+            const newReplyId = Math.floor(Math.random() * Date.now());
+
+            addNewReply(comments, parentId, newReplyId, newReplyTitle);
         }
     })
 
