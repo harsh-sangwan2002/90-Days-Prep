@@ -63,3 +63,57 @@ The IMDB App replicates core movie database functionalities, emphasizing dynamic
 
 - Participants built functional UI components and applied routing concepts in practice.
 - Emphasis was placed on debugging techniques, reading documentation, and developing problem-solving independence while working on modern web technologies.
+
+Here’s your **clean, ready-to-use revision note content** for your React IMDb Pagination project (plain text, no extra formatting or markdown):
+
+---
+
+Revision Notes: React Application with Movie Fetch and Pagination
+
+This document serves as a comprehensive guide to the class discussion on creating a React application that fetches movie data and implements pagination. The lesson focused on React Hooks and features including state management, component lifecycle, and pagination logic.
+
+Table of Contents
+
+1. Application Overview
+
+2. Using useEffect for Data Fetching
+
+3. The Infinite Loop Problem
+
+4. Component Breakdown
+
+5. Handling Pagination
+
+6. Application Overview
+   The goal of the project is to create an IMDb clone that displays trending movies using an API. Key features include viewing a list of trending movies, implementing a dynamic pagination system, and using React for client-side rendering. The application is styled using Tailwind CSS, which was set up in a previous class.
+
+7. Using useEffect for Data Fetching
+   The class emphasized the use of the useEffect Hook to fetch data from an API when the component mounts. The discussion illustrated how to use fetch to retrieve data, handle promises with .then, and dynamically update state with API results.
+
+Key Points:
+
+- useEffect executes after the first render and whenever the dependencies in the array change.
+- An empty dependency array makes it run only once, similar to componentDidMount.
+
+3. The Infinite Loop Problem
+   An important issue discussed was the infinite loop that can occur when setting state inside useEffect.
+   Reason: Setting state within useEffect can trigger a re-render, causing useEffect to re-execute repeatedly.
+   Solution: Use proper dependencies and conditions to prevent continuous re-renders.
+
+4. Component Breakdown
+   The application was divided into smaller components for better modularity and reusability.
+
+- Movie Component: Renders individual movie details such as title, poster, and rating.
+- Movie List Component: Manages movie data and renders multiple Movie components using map().
+
+5. Handling Pagination
+   Pagination was a key part of the project. A fixed threshold controlled how many pages to show at once. The logic handled both dynamic starting points and edge cases (beginning and end of page range).
+
+Steps in Pagination Logic:
+
+- Calculate the starting page based on the current page and threshold.
+- Adjust pagination dynamically to handle edges smoothly.
+- Implement click handlers to navigate between pages using state updates.
+
+Conclusion
+The session provided valuable insights into building a React IMDb clone with dynamic movie fetching and robust pagination. It covered common issues like infinite render loops and emphasized writing modular, maintainable React applications using hooks and clean component structures.
