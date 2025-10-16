@@ -117,3 +117,60 @@ Steps in Pagination Logic:
 
 Conclusion
 The session provided valuable insights into building a React IMDb clone with dynamic movie fetching and robust pagination. It covered common issues like infinite render loops and emphasized writing modular, maintainable React applications using hooks and clean component structures.
+
+Here’s the complete **plain-text version** of your revision notes on **Prop Drilling and Context API in React**, ready to copy or include in your project documentation:
+
+---
+
+Revision Notes: Prop Drilling and Context API in React
+
+Agenda of the Lecture
+Implementation of Sorting, Searching, and Filtering based on movie genres.
+Understanding Prop Drilling.
+Introduction to Context API.
+Using useContext Hook.
+Integrating Context API into the Project.
+
+Core Concepts Explained
+
+Prop Drilling
+Prop drilling refers to passing data from a parent component to deeply nested child components through multiple intermediate layers. This occurs when data from a top-level component needs to reach a component far down in the hierarchy.
+
+Example Scenario
+If Component A (Grandparent) needs to share data with Component E (Grandchild) through Component B and Component C, the data must be passed through each intermediate component, even if they do not use it. This process is inefficient and makes the code less maintainable.
+
+Context API
+The Context API provides a solution to prop drilling by allowing data to be shared directly across components without passing it through intermediate ones. It is primarily used for global state management and can store shared data such as user authentication details, theme settings, or watchlists.
+
+Applying Context API
+
+Creating Context
+Create a context object using React.createContext(). This object holds the global state accessible throughout the component tree.
+
+Providing Context
+Wrap the main component tree with the Provider of the created context. The Provider accepts a value prop that defines the data or state to be shared with all child components.
+
+Consuming Context
+Use the useContext hook in any child component to access data from the nearest Provider without passing props manually.
+
+Example: Movie Watchlist Feature with Sorting and Searching
+
+Sorting Movies
+Sorting functionality allows movies in the watchlist to be arranged based on ratings. Two main functions are used:
+
+- Ascending Sort: Sorts movies from lowest to highest rating.
+- Descending Sort: Sorts movies from highest to lowest rating.
+  After sorting, a new array is created to trigger re-rendering of the updated list.
+
+Searching Movies
+The search feature filters the displayed movie list dynamically as the user types into the input field. It uses a state variable to track the current search term and filters the movie titles in real-time.
+
+Integrating Context API for State Management
+In projects where multiple components such as Home and Watchlist need to share and update the same data, Context API helps maintain a centralized state. By wrapping the application in a context provider, all components gain access to shared states and functions without prop drilling.
+
+This approach improves scalability, code readability, and reduces bugs caused by inconsistent data flow.
+
+Conclusion
+The Context API in React simplifies state sharing across components and eliminates the need for deep prop drilling. It enhances maintainability, improves component communication, and provides a cleaner structure for managing global state.
+
+By integrating Context with features like sorting and searching, developers can create more dynamic and maintainable applications.
