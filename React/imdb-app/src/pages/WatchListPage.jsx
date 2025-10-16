@@ -1,3 +1,5 @@
+import { useContext } from 'react'
+import { WatchListContext } from '../context/WatchListContext'
 import { useState } from "react"
 
 const genreIds = {
@@ -23,8 +25,9 @@ const genreIds = {
     37: "Western"
 }
 
-const WatchListPage = ({ watchlist, setWatchlist }) => {
+const WatchListPage = () => {
 
+    const { watchlist, setWatchlist } = useContext(WatchListContext);
     const [list, setList] = useState(Object.values(watchlist));
 
     const handleChange = (e) => {

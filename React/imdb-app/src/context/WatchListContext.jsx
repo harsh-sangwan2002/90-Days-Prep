@@ -1,0 +1,17 @@
+import { useState } from "react";
+import { createContext } from "react";
+
+export const WatchListContext = createContext();
+
+const WatchListProvider = ({ children }) => {
+
+    const [watchlist, setWatchlist] = useState({});
+
+    return (
+        <WatchListContext.Provider value={{ watchlist, setWatchlist }}>
+            {children}
+        </WatchListContext.Provider>
+    );
+}
+
+export default WatchListProvider;

@@ -6,19 +6,21 @@ import NotFound from './pages/NotFound'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import Header from './components/Header'
+import WatchListProvider from './context/WatchListContext'
 
 function App() {
 
-  const [watchlist, setWatchlist] = useState({});
   return (
     <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<MovieListPage watchlist={watchlist} setWatchlist={setWatchlist} />} />
-        <Route path="/details" element={<MovieDetailsPage />} />
-        <Route path="/watchlist" element={<WatchListPage watchlist={watchlist} setWatchlist={setWatchlist} />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <WatchListProvider>
+        <Header />
+        <Routes>
+          <Route path="/" element={<MovieListPage />} />
+          <Route path="/details" element={<MovieDetailsPage />} />
+          <Route path="/watchlist" element={<WatchListPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </WatchListProvider>
     </Router>
   )
 }
