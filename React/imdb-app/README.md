@@ -176,3 +176,122 @@ The Context API in React simplifies state sharing across components and eliminat
 By integrating Context with features like sorting and searching, developers can create more dynamic and maintainable applications.
 
 Here’s your **README.md** content for the topic **“Redux and State Management in React”** written in plain text (no code snippets, ready for Markdown file use):
+
+# ⚛️ React and Redux – Revision Notes
+
+### 🗓️ Agenda
+
+- Understanding the integration between **React components** and **Redux** for state management
+- Implementing a **Watchlist** feature using React and Redux
+- Managing application state with a **global Redux store**
+- Persisting data using **Local Storage** in React applications
+
+---
+
+## 🧠 Introduction to Redux Integration
+
+**Redux** is a predictable state container often used with **React** to handle global application state efficiently.  
+Unlike local component states, Redux centralizes state management, ensuring consistency and scalability across the app.
+
+By maintaining a **global store**, Redux eliminates **prop drilling**, allowing any component to access or update shared data seamlessly.
+
+---
+
+## 🧩 Key Concepts
+
+### 🏬 Store
+
+A single, immutable **object tree** that represents the entire state of the application. It acts as the single source of truth.
+
+### 📦 Action
+
+An object that describes an **event** or change in the application.  
+Actions are the **only way** to trigger a state update.
+
+### ⚙️ Reducer
+
+A **pure function** that determines how the next state is calculated based on the current state and the action received.
+
+### 🚀 Dispatch
+
+A method used to **send actions** to the store.  
+Dispatching actions describes _what happened_ and triggers corresponding updates through reducers.
+
+---
+
+## 🛒 Analogy
+
+Think of Redux as a **shopping complex**:
+
+- 🏬 **Global Store:** Holds all the goods (application data)
+- 👷 **Actions:** Employees who update the inventory
+- ⚙️ **Reducers:** Protocols or rules defining how updates are made
+- 📢 **State Updates:** Instantly reflected across all departments (components)
+
+This analogy illustrates how Redux ensures consistent and predictable state changes across your entire app.
+
+---
+
+## 🏗️ Project Structure Overview
+
+The session focused on integrating Redux into a React project by implementing a **Watchlist** feature with persistent data storage.
+
+### 🔹 Steps Overview
+
+1. **Define State Variables**
+
+   - Initialize the `watchList` state and synchronize it with local storage using React’s lifecycle methods.
+
+2. **Handle State with Redux**
+
+   - Replace context-based state management with Redux for better scalability.
+   - Pass generic component data through props for **dynamic** and **decoupled** handling.
+   - Use the Redux store for centralized read/write access to shared state.
+
+3. **Update Components**
+
+   - Modify components like `WatchList` to rely on the global Redux store instead of local state.
+   - Maintain data in **generic structures** to support multiple data types dynamically.
+
+4. **Use of Local Storage**
+
+   - Store watchlist data locally for **persistence** across browser sessions.
+   - Automatically sync local data with Redux to restore state after reloads.
+
+5. **Fetch Data from APIs**
+   - Integrate live data from the **TMDB API** using Axios.
+   - Populate Redux-managed components dynamically for an interactive UI.
+
+---
+
+## 🎬 Watchlist Feature Implementation
+
+The Watchlist feature demonstrated:
+
+- Moving movie data management from local state to **Redux**.
+- Displaying, adding, and removing movies from the global watchlist.
+- Synchronizing Redux state with **Local Storage** to ensure persistence.
+- Maintaining clean separation between **UI components** and **business logic**.
+
+This approach improves maintainability, scalability, and performance in data-heavy React applications.
+
+---
+
+## 🧾 Concepts in Practice
+
+| Concept                       | Purpose                     | Benefit                                    |
+| ----------------------------- | --------------------------- | ------------------------------------------ |
+| **Redux Store**               | Centralized state container | Predictable and consistent state           |
+| **Actions**                   | Define "what happened"      | Simplifies communication across components |
+| **Reducers**                  | Define "how state changes"  | Pure and testable logic                    |
+| **Local Storage**             | Persist state locally       | Data retention after reload                |
+| **useDispatch / useSelector** | Hooks for Redux interaction | Simplifies data flow and updates           |
+
+---
+
+## 🏁 Conclusion
+
+This class provided an in-depth understanding of **React + Redux integration** for modern web applications.  
+By combining **Redux state management** with **local storage persistence**, developers can create highly scalable, reliable, and maintainable React apps.
+
+The **Watchlist** implementation served as a practical example of applying these principles — showcasing real-world use cases like API data fetching, state synchronization, and modular architecture.

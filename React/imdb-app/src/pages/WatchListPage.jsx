@@ -1,6 +1,5 @@
-import { useContext } from 'react'
-import { WatchListContext } from '../context/WatchListContext'
 import { useState } from "react"
+import { useSelector } from 'react-redux'
 
 const genreIds = {
     0: "All",
@@ -27,7 +26,8 @@ const genreIds = {
 
 const WatchListPage = () => {
 
-    const { watchlist, setWatchlist } = useContext(WatchListContext);
+    const watchlist = useSelector(state => state.watchList);
+
     const [list, setList] = useState(Object.values(watchlist));
 
     const handleChange = (e) => {

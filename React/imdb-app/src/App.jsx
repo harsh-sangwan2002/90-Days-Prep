@@ -3,16 +3,17 @@ import MovieListPage from './pages/MovieListPage'
 import MovieDetailsPage from './pages/MovieDetailsPage'
 import WatchListPage from './pages/WatchListPage'
 import NotFound from './pages/NotFound'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-
 import Header from './components/Header'
-import WatchListProvider from './context/WatchListContext'
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import store from './redux/Store'
+import { Provider } from 'react-redux'
 
 function App() {
 
   return (
     <Router>
-      <WatchListProvider>
+      <Provider store={store}>
         <Header />
         <Routes>
           <Route path="/" element={<MovieListPage />} />
@@ -20,7 +21,7 @@ function App() {
           <Route path="/watchlist" element={<WatchListPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </WatchListProvider>
+      </Provider>
     </Router>
   )
 }
