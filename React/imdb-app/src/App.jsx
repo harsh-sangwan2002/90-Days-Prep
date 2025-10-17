@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import MovieListPage from './pages/MovieListPage'
 import MovieDetailsPage from './pages/MovieDetailsPage'
 import WatchListPage from './pages/WatchListPage'

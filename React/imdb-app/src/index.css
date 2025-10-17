@@ -58,6 +58,10 @@ i {
   cursor: pointer;
 }
 
+img {
+  border-radius: 10px;
+}
+
 /* Header */
 .navbar {
   display: flex;
@@ -140,6 +144,14 @@ i {
   align-items: center;
 }
 
+.top-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
 .watchlist-page .container {
   margin: 0 auto;
   display: flex;
@@ -172,14 +184,29 @@ i {
 }
 
 .container .right-section input {
-  width: 98%;
+  width: 98.5%;
   height: 20px;
   padding: 0.5rem;
   margin: 5px 0;
 }
 
-.container .right-section table td {
-  padding: 1rem;
+table td {
+  padding: 0.5rem;
+}
+
+/* Movie Details Page */
+.movie-details-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin: 1rem;
+}
+
+.movie-details-page .bottom-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 /* Responsive Design */

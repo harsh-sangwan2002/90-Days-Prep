@@ -1,5 +1,7 @@
 import { useState } from "react"
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { removeFromWatchlist } from "../redux/WatchListSlice";
+import { useNavigate } from "react-router-dom";
 
 const genreIds = {
     0: "All",
@@ -27,6 +29,8 @@ const genreIds = {
 const WatchListPage = () => {
 
     const watchlist = useSelector(state => state.watchList);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const [list, setList] = useState(Object.values(watchlist));
 
@@ -98,11 +102,25 @@ const WatchListPage = () => {
         setList(newList);
     }
 
+    const handleDelete = (id) => {
+        const newList = list.filter(movie => movie.id !== id);
+        setList(newList);
+        dispatch(removeFromWatchlist(id));
+    }
+
+    const handleGoBack = () => {
+        navigate('/');
+    }
+
     return (
         <section className="watchlist-page">
-            <h1> Watch List Page</h1>
+            <div className="top-section">
+                <button onClick={handleGoBack}>⬅️ Go Back</button>
+                <h1> Watch List Page</h1>
+            </div>
             <div className="container">
                 <div className="left-section">
+
                     <div className="genres">
                         {
                             selectedGenres().map(id => (
@@ -123,6 +141,7 @@ const WatchListPage = () => {
                                 <td><i onClick={handlePopularityDesc}>⬆️</i> Populaity <i onClick={handlePopularityAsc}>⬇️</i></td>
                                 <td><i onClick={handleVoteAverageDesc}>⬆️</i> Vote Average <i onClick={handleVoteAverageAsc}>⬇️</i></td>
                                 <td><i onClick={handleReleaseDateDesc}>⬆️</i> Release Date <i onClick={handleReleaseDateAsc}>⬇️</i></td>
+                                <td>Action</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -136,6 +155,7 @@ const WatchListPage = () => {
                                         <td>{movie.popularity}</td>
                                         <td>{movie.vote_average}</td>
                                         <td>{movie.release_date}</td>
+                                        <td><button onClick={() => handleDelete(movie.id)}>Delete</button></td>
                                     </tr>
                                 ))
                             }
