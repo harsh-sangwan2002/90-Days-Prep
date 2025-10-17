@@ -6,6 +6,10 @@ This project involves building an IMDB (Internet Movie Database) clone using **R
 
 ---
 
+## Live Demo
+
+[Link](https://harsh-imdb-app.vercel.app/)
+
 ## Introduction
 
 The IMDB App replicates core movie database functionalities, emphasizing dynamic navigation and reusable components. Using React for the frontend, React Router for routing, and Tailwind CSS for design ensures fast development and a modern, clean interface.
