@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useCallback, useMemo, useState } from "react"
 import { useDispatch, useSelector } from 'react-redux'
 import { removeFromWatchlist } from "../redux/WatchListSlice";
 import { useNavigate } from "react-router-dom";
@@ -34,7 +34,7 @@ const WatchListPage = () => {
 
     const [list, setList] = useState(Object.values(watchlist));
 
-    const handleChange = (e) => {
+    const handleChange = useCallback((e) => {
 
         if (e.target.value === "")
             setList(Object.values(watchlist));
@@ -44,9 +44,9 @@ const WatchListPage = () => {
             setList(newList);
         }
 
-    }
+    }, [watchlist]);
 
-    const selectedGenres = () => {
+    const selectedGenres = useMemo(() => {
         const genres = [0];
 
         Object.values(watchlist).forEach(movie => {
@@ -54,9 +54,9 @@ const WatchListPage = () => {
         });
 
         return [...new Set(genres)];
-    }
+    }, [watchlist]);
 
-    const handleGenreChange = (id) => {
+    const handleGenreChange = useCallback((id) => {
 
         if (id === 0) {
             setList(Object.values(watchlist));
@@ -64,49 +64,49 @@ const WatchListPage = () => {
         }
         const newList = Object.values(watchlist).filter(movie => movie.genre_ids.includes(id));
         setList(newList);
-    }
+    }, [watchlist]);
 
-    const handlePopularityAsc = () => {
+    const handlePopularityAsc = useCallback(() => {
         const newList = [...list];
         newList.sort((a, b) => a.popularity - b.popularity);
         setList(newList);
-    }
+    }, [list]);
 
-    const handlePopularityDesc = () => {
+    const handlePopularityDesc = useCallback(() => {
         const newList = [...list];
         newList.sort((a, b) => b.popularity - a.popularity);
         setList(newList);
-    }
+    }, [list]);
 
-    const handleVoteAverageAsc = () => {
+    const handleVoteAverageAsc = useCallback(() => {
         const newList = [...list];
         newList.sort((a, b) => a.vote_average - b.vote_average);
         setList(newList);
-    }
+    }, [list]);
 
-    const handleVoteAverageDesc = () => {
+    const handleVoteAverageDesc = useCallback(() => {
         const newList = [...list];
         newList.sort((a, b) => b.vote_average - a.vote_average);
         setList(newList);
-    }
+    }, [list]);
 
-    const handleReleaseDateAsc = () => {
+    const handleReleaseDateAsc = useCallback(() => {
         const newList = [...list];
         newList.sort((a, b) => new Date(a.release_date) - new Date(b.release_date));
         setList(newList);
-    }
+    }, [list]);
 
-    const handleReleaseDateDesc = () => {
+    const handleReleaseDateDesc = useCallback(() => {
         const newList = [...list];
         newList.sort((a, b) => new Date(b.release_date) - new Date(a.release_date));
         setList(newList);
-    }
+    }, [list]);
 
-    const handleDelete = (id) => {
+    const handleDelete = useCallback((id) => {
         const newList = list.filter(movie => movie.id !== id);
         setList(newList);
         dispatch(removeFromWatchlist(id));
-    }
+    }, [list, dispatch]);
 
     const handleGoBack = () => {
         navigate('/');
@@ -123,7 +123,7 @@ const WatchListPage = () => {
 
                     <div className="genres">
                         {
-                            selectedGenres().map(id => (
+                            selectedGenres.map(id => (
                                 <button className="genre" key={id} onClick={() => handleGenreChange(id)}>{genreIds[id]}</button>
                             ))
                         }

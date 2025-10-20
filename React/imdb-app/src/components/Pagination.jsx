@@ -1,60 +1,67 @@
-import { useEffect, useState } from "react";
+import { useState, useMemo, useCallback } from "react";
+import React from "react";
+
+const THRESHOLD = 10;
 
 const Pagination = ({ handleClick, totalPages }) => {
-
-    const [pages, setPages] = useState([]);
     const [currPage, setCurrPage] = useState(1);
-    const [totalPagesCount, setTotalPagesCount] = useState();
-    const THRESHOLD = 10;
 
-    const setNewPagesList = (pageNo) => {
-        const itemsLength = Math.min(totalPagesCount, THRESHOLD);
+    console.log("Pagination rendered");
+
+    const pages = useMemo(() => {
+        const itemsLength = Math.min(totalPages, THRESHOLD);
         let itemsOnLeft = Math.ceil(THRESHOLD / 2) - 1;
-        let startingPage = Math.max(1, pageNo - itemsOnLeft);
+        let startingPage = Math.max(1, currPage - itemsOnLeft);
 
-        if (startingPage + itemsLength > totalPagesCount) {
-            startingPage = totalPages - itemsLength + 1;
+        if (startingPage + itemsLength - 1 > totalPages) {
+            startingPage = Math.max(1, totalPages - itemsLength + 1);
         }
 
-        const list = Array.from({ length: Math.min(totalPages, THRESHOLD) }, (_, i) => i + startingPage);
-        setPages(list);
-    }
+        return Array.from({ length: itemsLength }, (_, i) => i + startingPage);
+    }, [currPage, totalPages]);
 
-    const handlePrevClick = () => {
+    const handlePrevClick = useCallback(() => {
         if (currPage > 1) {
-            handleClick(currPage - 1);
             setCurrPage(currPage - 1);
+            handleClick(currPage - 1);
         }
-    }
+    }, [currPage, handleClick]);
 
-    const handlePageClick = (page) => {
-        setCurrPage(page);
-        handleClick(page);
-        setNewPagesList(page);
-    };
+    const handleNextClick = useCallback(() => {
+        if (currPage < totalPages) {
+            setCurrPage(currPage + 1);
+            handleClick(currPage + 1);
+        }
+    }, [currPage, handleClick, totalPages]);
 
-    const handleNextClick = () => {
-        handleClick(currPage + 1);
-        setCurrPage(currPage + 1);
-    }
-
-    useEffect(() => {
-        setTotalPagesCount(totalPages);
-        const list = Array.from({ length: Math.min(totalPages, THRESHOLD) }, (_, i) => i + 1);
-        setPages(list);
-    }, [totalPages])
+    const handlePageClick = useCallback(
+        (page) => {
+            setCurrPage(page);
+            handleClick(page);
+        },
+        [handleClick]
+    );
 
     return (
         <section className="pagination">
-            <button onClick={handlePrevClick}>&lt;</button>
-            {
-                pages.map(page => (
-                    <button key={page} onClick={() => handlePageClick(page)}>{page}</button>
-                ))
-            }
-            <button onClick={handleNextClick}>&gt;</button>
+            <button onClick={handlePrevClick} disabled={currPage === 1}>
+                &lt;
+            </button>
+            {pages.map((page) => (
+                <button
+                    key={page}
+                    onClick={() => handlePageClick(page)}
+                    className={page === currPage ? "active" : ""}
+                >
+                    {page}
+                </button>
+            ))}
+            <button onClick={handleNextClick} disabled={currPage === totalPages}>
+                &gt;
+            </button>
         </section>
-    )
-}
+    );
+};
 
-export default Pagination
+
+export default React.memo(Pagination);
