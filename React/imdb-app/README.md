@@ -431,3 +431,63 @@ By combining:
 developers can build **scalable, maintainable, and efficient** applications.
 
 Participants were encouraged to integrate Redux into their projects and experiment with **custom middleware** and **async workflows** to strengthen their practical understanding.
+
+# React Performance Optimization
+
+This repository contains notes and insights from **Class 11: Performance Optimization in React**, focusing on techniques to enhance performance, reduce bundle size, and improve rendering efficiency in React applications.
+
+---
+
+## Class Overview
+
+In this class, we explored strategies to make React applications faster and more efficient. The key focus areas were:
+
+- **Reducing bundle sizes** to improve load times.
+- **Optimizing component rendering** using memoization and other techniques.
+- **Implementing code splitting and lazy loading** for better user experience.
+
+---
+
+## Performance Optimization Techniques
+
+### Understanding Bundle Size
+
+- Smaller bundle sizes lead to faster application load times and better performance.
+- Developers should use tools like the browser's network tab to monitor and optimize the size of JavaScript files.
+
+### Memoization
+
+Memoization is a technique used to **cache results of expensive computations**, preventing unnecessary recalculations and re-renders.
+
+- **useMemo**: Used to memoize expensive calculations within components so they are not recalculated on every render unless necessary.
+- **React.memo**: A higher-order component that optimizes functional components, preventing re-renders when props remain unchanged.
+
+### Code Splitting and Lazy Loading
+
+Code splitting and lazy loading improve performance by **loading only the code that is needed** at any given time.
+
+- **Dynamic Imports**: Load JavaScript modules asynchronously to reduce initial bundle size.
+- **React.lazy and Suspense**: Enable lazy loading of components, with fallback UI displayed while the component loads.
+- **Route-based Chunking**: Only load JavaScript necessary for the current route, improving responsiveness for large applications.
+
+---
+
+## Class Example: Chunk Loading for Routes
+
+- Implemented route-based chunk loading to ensure that only the necessary code is loaded for each page.
+- Example pages included "HomePage," "AboutPage," and "ContactPage," each dynamically loaded for performance improvement.
+
+---
+
+## Key Takeaways
+
+1. **Memoization and code splitting** are essential techniques for React performance optimization.
+2. Understanding **component lifecycle and dependencies** is critical for effectively applying memoization.
+3. Real-world applications benefit from these techniques through **faster load times** and **smoother user interactions**.
+4. Hands-on implementation helps solidify understanding and demonstrates the practical advantages of these performance strategies.
+
+---
+
+## Conclusion
+
+Optimizing React applications using **memoization, lazy loading, and code splitting** enhances both developer efficiency and user experience. By applying these strategies, developers can build scalable applications that perform well even as complexity grows.
