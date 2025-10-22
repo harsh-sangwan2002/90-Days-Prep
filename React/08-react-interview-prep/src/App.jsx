@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import './App.css'
+import Parent from './components/Parent'
+import SearchInput from './components/SearchInput'
 
 function App() {
   const [list, setList] = useState(['Item 1', 'Item 2', 'Item 3'])
@@ -13,7 +15,7 @@ function App() {
 
   return (
     <div>
-      <h1>Todo App</h1>
+      {/* <h1>Todo App</h1>
       <input id='item' type="text" placeholder='Add new Todo' onKeyDown={handleNewTodo} />
       <ul>
         {
@@ -21,7 +23,9 @@ function App() {
             <li key={item}>{item}</li>
           ))
         }
-      </ul>
+      </ul> */}
+      {/* <Parent /> */}
+      <SearchInput />
     </div>
   )
 }

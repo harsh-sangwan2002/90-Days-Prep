@@ -35,7 +35,6 @@ function App() {
     }, 1000);
   }
   const handleStop = () => {
-    console.log('stop');
     clearInterval(intervalId.current);
   }
 
