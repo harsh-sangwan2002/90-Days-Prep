@@ -3,6 +3,7 @@ import './App.css'
 import Parent from './components/Parent'
 import SearchInput from './components/SearchInput'
 import CommentBox from './components/CommentBox'
+import Accordian from './components/Accordian'
 
 function App() {
   const [list, setList] = useState(['Item 1', 'Item 2', 'Item 3'])
@@ -27,7 +28,8 @@ function App() {
       </ul> */}
       {/* <Parent /> */}
       {/* <SearchInput /> */}
-      <CommentBox />
+      {/* <CommentBox /> */}
+      <Accordian />
     </div>
   )
 }
