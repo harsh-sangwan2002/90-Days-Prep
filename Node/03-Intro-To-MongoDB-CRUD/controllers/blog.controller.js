@@ -1,5 +1,26 @@
 const blogModel = require('../models/blog.model');
 
+const renderBlogs = async (req, res) => {
+    try {
+        const blogs = await blogModel.find();
+        res.render('blogList', { blogs });
+    } catch (err) {
+        res.status(500).send("Internal Server Error");
+    }
+}
+
+const renderBlogById = async (req, res) => {
+    try {
+        const blog = await blogModel.findById(req.params.id);
+        if (!blog) {
+            return res.status(404).send("Blog not found");
+        }
+        res.render('blogDetail', { blog });
+    } catch (err) {
+        res.status(500).send("Internal Server Error");
+    }
+}
+
 const getAllBlogs = async (req, res) => {
     try {
         const blogs = await blogModel.find();
@@ -46,4 +67,4 @@ const deleteBlog = async (req, res) => {
     }
 }
 
-module.exports = { getAllBlogs, getBlogById, createBlog, deleteBlog };
+module.exports = { renderBlogById, renderBlogs, getAllBlogs, getBlogById, createBlog, deleteBlog };
