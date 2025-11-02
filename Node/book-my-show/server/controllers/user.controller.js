@@ -26,9 +26,12 @@ const loginUser = async (req, res) => {
             return res.status(401).json({ error: 'Invalid credentials' });
         }
 
-        const token = jwt.sign({ id: user._id }, '123456', { expiresIn: '1d' });
-        res.setHeader('Authorization', `Bearer ${token}`);
-        res.status(200).json({ message: 'Login successful', user, token });
+        const token = jwt.sign({ id: user._id, email: user.email, isAdmin: user.isAdmin }, '123456', { expiresIn: '1d' });
+        res.cookie('token', token, {
+            httpOnly: true,     // Prevent JS access (XSS protection)
+            maxAge: 24 * 60 * 60 * 1000 // 1 day
+        });
+        res.status(200).json({ message: 'Login successful', user });
     } catch (err) {
         res.status(500).json({ error: 'Internal Server Error' });
     }
@@ -36,16 +39,14 @@ const loginUser = async (req, res) => {
 
 const getUser = async (req, res) => {
     try {
-        const user = await userModel.findById(req.params.id);
+        const token = req?.cookies?.token;
+        const decoded = jwt.verify(token, '123456');
+        const user = await userModel.findOne({ email: decoded.email });
+
         if (!user) {
             return res.status(404).json({ error: 'User not found' });
         }
-        const token = req.headers['Authorization']?.split(' ')[1];
-        // console.log(token);
-        // const verifyToken = jwt.verify(token, '123456');
-        // if (verifyToken.id !== user._id.toString()) {
-        //     return res.status(403).json({ error: 'Forbidden' });
-        // }
+
         res.status(200).json(user);
     } catch (err) {
         res.status(500).json({ error: 'Internal Server Error' });
