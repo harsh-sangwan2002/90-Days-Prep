@@ -32,7 +32,7 @@ async function callDummyPromise() {
         const r1 = await createDummyPromise(3000, "Hello after 3 seconds");
         console.log(r1);
 
-        const r2 = await createDummyPromise(7000, "Hello after 7 seconds");
+        const r2 = await createDummyPromise(4000, "Hello after 7 seconds");
         console.log(r2);
     } catch (err) {
         console.log(err);

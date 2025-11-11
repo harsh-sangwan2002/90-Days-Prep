@@ -28,10 +28,10 @@ const obj3 = {
     value: 99,
     printValue: function () {
         const inner = () => {
-            console.log(this.value); // undefined
+            console.log(this.value); // 99
         }
         setTimeout(inner, 1000); // 99
-        // inner();
+        inner();
     }
 }
 obj3.printValue();
