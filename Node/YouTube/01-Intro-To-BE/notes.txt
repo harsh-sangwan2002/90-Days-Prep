@@ -1,0 +1,9 @@
+Q-1 What is an API
+Q-2 MVC Architecture
+Q-3 Authentication Vs Authorization
+Q-4 Design Patterns
+Q-5 Error Handling
+Q-6 Development with Express (Middlewares & Views)
+Q-7 Image Uploader(Multer), Payment(Stripe), Mail(Nodemailer)
+Q-8 Web security(Sniffing & SQL Injection)
+Q-9 Database(MongoDB, SQL)

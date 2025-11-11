@@ -1,0 +1,13 @@
+1. Server is divided into two parts - Software(HTTP) & Hardware(Hard-disk,DB)
+
+2. Server characteristics
+• Effecient storage and delivery of information
+• Customized user experience 
+• Controlled access to content
+• Notification & communications
+
+3. HTTP (HyperText Transfer Protocol) -> It is the foundation of data communication on the World Wide Web.
+It defines how messages are formatted and transmitted, and how web servers and browsers (clients) should respond to various commands.
+• Stateless -> Each request is independent; the server doesn’t remember previous requests.
+• Connectionless -> A connection is established only for a single request–response cycle.
+• Extensible -> Supports new methods, headers, and formats.
