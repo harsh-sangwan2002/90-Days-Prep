@@ -6,6 +6,13 @@ const server = http.createServer((req, res) => {
     // res.write('<h1>Hello, World!</h1>');
     // res.end();
     let path = './views';
+    console.log(req.url);
+
+    if (req.url.endsWith('css'))
+        res.setHeader('Content-Type', 'text/css')
+
+    else
+        res.setHeader('Content-Type', 'text/html');
 
     switch (req.url) {
         case '/':
@@ -14,6 +21,10 @@ const server = http.createServer((req, res) => {
             break;
         case '/about':
             path += '/about.html';
+            res.statusCode = 200; // OK
+            break;
+        case '/style.css':
+            path += '/style.css';
             res.statusCode = 200; // OK
             break;
         case '/about-me':
