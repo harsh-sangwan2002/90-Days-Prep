@@ -1,0 +1,39 @@
+1. Benefits os using express
+• Syntax is simple 
+• Code readability is high
+• More secure & fast
+• Easy server side logic
+
+2. HTTP Methods
+• GET -> To get data from the server
+• POST -> To send data to the server
+• PATCH -> To update data on the server 
+• DELETE -> To delete data from the server
+
+3. Params & Queries
+• Params -> To get the exact data from server
+• Queries -> For filtering out the data
+
+4. REST API
+• Response should be same irrespective of the platform
+• Routes should be on the basis of nouns
+• HTTP methods should be used for doing operations on these Routes
+• Data should always be in JSON format
+• APIs must be stateless
+• Great community support
+• 95% of the APIs are REST APIs
+
+5. Middlewares
+• app.use -> global middleware
+• app.get/post -> specific path middleware
+
+6. MongoDB
+• NoSQL database
+• Robust
+• Scalable
+• Flexible schema
+• Load balancing
+• Sharding
+• Complex transactions
+• Acid properties are not applicable
+• JOINS are slow
