@@ -14,8 +14,25 @@ let users = [
 ]
 
 const userModel = require('../models/user.model');
+const jwt = require('jsonwebtoken');
 
-const getUser = async (req, res) => {
+const protectRoute = async (req, res, next) => {
+    let token;
+    if (req.cookies.login) {
+        token = req.cookies.login;
+        let payload = jwt.verify(req.cookies.login, process.env.JWT_SECRET);
+        const user = await userModel.findById(payload.payload);
+        req.role = user.role;
+        req.id = user.id;
+        next();
+    } else {
+        res.status(401).json({
+            message: "User not logged in"
+        })
+    }
+}
+
+const getUsers = async (req, res) => {
     try {
         const allUsers = await userModel.find();
         res.status(200).json({
@@ -26,6 +43,23 @@ const getUser = async (req, res) => {
         console.log(err);
         res.status(500).json({
             message: "Error while fetching users",
+            error: err
+        })
+    }
+}
+
+const getUser = async (req, res) => {
+    try {
+        const id = req.id;
+        const user = await userModel.findById(id);
+        res.status(200).json({
+            message: "User fetched successfully",
+            data: user
+        })
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({
+            message: "Error while fetching user",
             error: err
         })
     }
@@ -55,11 +89,12 @@ const postUser = async (req, res) => {
 
 const updateUser = async (req, res) => {
     try {
+        const id = req.params.id;
         const dataToBeUpdated = req.body;
-        const user = await userModel.findOneAndUpdate({ email: dataToBeUpdated.email }, dataToBeUpdated);
+        const data = await userModel.findOneAndUpdate({ _id: id }, dataToBeUpdated);
         res.status(200).json({
             message: "User updated successfully",
-            data: user
+            data
         })
     } catch (err) {
         console.log(err);
@@ -72,8 +107,8 @@ const updateUser = async (req, res) => {
 
 const deleteUser = async (req, res) => {
     try {
-        const dataToBeDeleted = req.body
-        const user = await userModel.findOneAndDelete(dataToBeDeleted);
+        const id = req.params.id;
+        const user = await userModel.findOneAndDelete(id);
         res.status(200).json({
             message: "User deleted successfully",
             data: user
@@ -106,13 +141,32 @@ const getSignUp = (req, res, next) => {
 //     })
 // }
 
+const getCookies = (req, res) => {
+    const cookies = req.cookies;
+    console.log(cookies);
+    res.status(200).send("Cookies has benn received");
+}
+
+const setCookies = (req, res) => {
+    // res.setHeader('Set-Cookie', 'isLoggedIn=true');
+    // httpOnly: true -> cookie cannot be accessed via client-side JS
+    // sameSite: 'Strict' -> cookie will only be sent in requests originating from the same site
+    res.cookie('isLoggedIn', true, { maxAge: 1000 * 60 * 60 * 24, secure: true, httpOnly: true });
+    res.cookie('isPrimeMember', false, { maxAge: 1000 * 60 * 60 * 24, secure: true });
+    res.status(200).send("Cookies has been set");
+}
+
 module.exports = {
+    protectRoute,
     getUser,
+    getUsers,
     getUserById,
     postUser,
     updateUser,
     deleteUser,
     getSignUp,
     // middleware,
-    // middleware2
+    // middleware2,
+    getCookies,
+    setCookies
 }

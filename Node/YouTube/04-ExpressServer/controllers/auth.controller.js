@@ -1,27 +1,8 @@
 const userModel = require('../models/user.model');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
-const getUsers = async (req, res) => {
-    try {
-        const allUsers = await userModel.find();
-        res.status(200).json({
-            message: "Users fetched successfully",
-            data: allUsers
-        })
-    } catch (err) {
-        console.log(err);
-        res.status(500).json({
-            message: "Error while fetching users",
-            error: err
-        })
-    }
-}
-
-const getUserById = (req, res) => {
-    console.log(req.params.id);
-    res.send("User id received");
-}
-
-const postUser = async (req, res) => {
+const signup = async (req, res) => {
     try {
         let data = req.body;
         let user = await userModel.create(data);
@@ -38,66 +19,56 @@ const postUser = async (req, res) => {
     }
 }
 
-const updateUser = async (req, res) => {
+const login = async (req, res) => {
     try {
-        const dataToBeUpdated = req.body;
-        const user = await userModel.findOneAndUpdate({ email: dataToBeUpdated.email }, dataToBeUpdated);
-        res.status(200).json({
-            message: "User updated successfully",
-            data: user
-        })
+        const { email, password } = req.body;
+        const user = await userModel.findOne({ email });
+        if (user) {
+            // compare password
+            const isPasswordValid = await bcrypt.compare(password, user.password);
+            if (isPasswordValid) {
+                let uid = user['_id'];
+                let token = jwt.sign({ payload: uid }, process.env.JWT_SECRET, { expiresIn: '1d' });
+                // httpOnly - not accessible via js on frontend
+                // secure - only via https
+                res.cookie('login', token, { maxAge: 1000 * 60 * 60 * 24, secure: true, httpOnly: true });
+                res.status(200).json({
+                    message: "Login successful",
+                    data: user
+                })
+            } else {
+                res.status(401).json({
+                    message: "Invalid credentials"
+                })
+            }
+
+        } else {
+            res.status(404).json({
+                message: "User not found"
+            })
+        }
     } catch (err) {
         console.log(err);
         res.status(500).json({
-            message: "Error while updating user",
+            message: "Error while logging in",
             error: err
         })
     }
 }
 
-const deleteUser = async (req, res) => {
-    try {
-        const dataToBeDeleted = req.body
-        const user = await userModel.findOneAndDelete(dataToBeDeleted);
-        res.status(200).json({
-            message: "User deleted successfully",
-            data: user
-        })
-    } catch (err) {
-        console.log(err);
-        res.status(500).json({
-            message: "User cannot be deleted",
-            error: err
-        })
+const isAuthorized = (roles) => {
+    return (req, res, next) => {
+        if (roles.includes(req.role)) {
+            next();
+        } else {
+            res.status(403).json({
+                message: "User not authorized"
+            })
+        }
     }
 }
-
-const getSignUp = (req, res, next) => {
-    console.log('getSignUp called');
-    // next();
-    res.status(200).sendFile('./public/index.html', { root: __dirname });
-}
-
-// const middleware = (req, res, next) => {
-//     console.log('Middleware1 encountered');
-//     next();
-// }
-
-// const middleware2 = (req, res, next) => {
-//     console.log('Middleware2 encountered');
-//     // next();
-//     res.json({
-//         message: "Middleware2 ended req/res cycle"
-//     })
-// }
-
 module.exports = {
-    getUsers,
-    getUserById,
-    postUser,
-    updateUser,
-    deleteUser,
-    getSignUp,
-    // middleware,
-    // middleware2
+    signup,
+    login,
+    isAuthorized
 }

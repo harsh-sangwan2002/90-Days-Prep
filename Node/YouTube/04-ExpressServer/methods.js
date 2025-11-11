@@ -1,15 +1,19 @@
 const express = require('express');
+const cookieParser = require('cookie-parser');
+const dotenv = require('dotenv');
 
 const app = express();
 // middleware to parse JSON bodies
 app.use(express.json());
+app.use(cookieParser());
+dotenv.config();
 
 const { connectToDB } = require('./utils/connectToDB');
 const userRouter = require('./routes/user.route');
 const authRouter = require('./routes/auth.route');
 
 // routes
-app.use('/users', userRouter);
+app.use('/user', userRouter);
 app.use('/auth', authRouter);
 
 // query

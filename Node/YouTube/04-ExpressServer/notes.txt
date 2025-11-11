@@ -37,3 +37,7 @@
 • Complex transactions
 • Acid properties are not applicable
 • JOINS are slow
+
+7. Cookies
+• Used to store data in user's browser
+• Google analytics tracks information and store in the browser and adv. agencies uses them to display relevant ads
