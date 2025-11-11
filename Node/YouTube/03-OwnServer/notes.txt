@@ -1,0 +1,9 @@
+1. Status Codes -> Short messages send from server to the client
+• 100 - 199 -> Informational Purpose
+• 200 - 299 -> Success
+• 300 - 399 -> Redirects
+• 400 - 499 -> Client side error
+• 500 - 599 -> Server side error
+• > 600 -> We write our own status codes, try to avoid these in development
+
+Helps in SEO
