@@ -6,7 +6,7 @@ const p1 = new Promise((resolve, reject) => {
 
 const p2 = new Promise((resolve, reject) => {
     setTimeout(() => {
-        reject('p2 rejected');
+        resolve('p2 resolved');
     }, 2000);
 })
 
