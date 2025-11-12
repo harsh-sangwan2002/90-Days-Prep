@@ -1,24 +1,34 @@
 import { useState } from "react"
 
-const TodoList = ({ title, items }) => {
+const TodoList = ({ title, myStyles }) => {
 
-    const [currTodo, setCurrTodo] = useState("");
-    const [todos, setTodos] = useState(items || []);
+    const [currItem, setCurrItem] = useState("");
+    const [items, setItems] = useState(['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5']);
+
+    const handleAdd = () => {
+        if (!currItem) return;
+
+        console.log("Handle Add Clicked");
+        setItems([...items, currItem]);
+        setCurrItem("");
+    }
+    console.log("TodoList Rendered");
 
     return (
-        <>
-            <h1>{title || "Todo List"}</h1>
-            <div style={{ display: 'flex' }}>
-                <input type="text" value={currTodo} onChange={(e) => setCurrTodo(e.target.value)} placeholder="Enter your todo" />
-                <button onClick={() => setTodos([...todos, currTodo])}>Add</button>
+        <div>
+            <h1 style={myStyles}>{title || "Todo List"}</h1>
+            <div style={{ display: 'flex', gap: '1rem' }}>
+                <input type="text" value={currItem} onChange={(e) => setCurrItem(e.target.value)} />
+                <button onClick={handleAdd}>Add</button>
             </div>
             <ul>
                 {
-                    todos.map((item, idx) =>
-                        <li key={idx}>{item}</li>)
+                    items.map((item, idx) => (
+                        <li key={idx}>{item}</li>
+                    ))
                 }
             </ul>
-        </>
+        </div>
     )
 }
 
