@@ -1,41 +1,48 @@
 import { useEffect, useState } from "react"
 
-const Counter = ({ qty, id, handleQuantityChange }) => {
+const Counter = ({ productId, quantity, onUpdate }) => {
 
-    const [quantity, setQuantity] = useState(qty);
+    const [count, setCount] = useState(quantity);
+
+    const handleDecrement = () => {
+        if (count === 0)
+            return;
+
+        setCount(prevCount => prevCount - 1);
+        onUpdate(productId, count - 1);
+    }
+
+    const handleIncrement = () => {
+        setCount(prevCount => prevCount + 1);
+        onUpdate(productId, count + 1);
+    }
+
+    // componentDidMount and componentDidUpdate
+    useEffect(() => {
+        console.log("Counter mounted or updated");
+    })
 
     // componentDidMount
-    useEffect(() => { }, [])
-
-    // componentDidMount + componentDidUpdate
-    useEffect(() => { })
+    useEffect(() => {
+        console.log("Counter mounted");
+    }, [])
 
     // componentDidUpdate
     useEffect(() => {
-        setQuantity(qty);
-    }, [qty])
+        console.log('Counter updated - trigger on count change');
+    }, [count]);
 
     // componentWillUnmount
     useEffect(() => {
-        return () => { }
+        return () => {
+            console.log("Counter unmounted");
+        }
     }, [])
 
-    const handleIncrement = () => {
-        setQuantity(quantity + 1);
-        handleQuantityChange(id, quantity + 1);
-    }
-
-    const handleDecrement = () => {
-        if (quantity > 0) {
-            setQuantity(quantity - 1);
-            handleQuantityChange(id, quantity - 1);
-        }
-    }
-
     return (
-        <div style={{ display: 'flex', gap: '0.5rem', alignItems: "center" }}>
+        <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
             <button onClick={handleDecrement}>-</button>
-            <span>{quantity}</span>
+            <span>{count}</span>
             <button onClick={handleIncrement}>+</button>
         </div>
     )
