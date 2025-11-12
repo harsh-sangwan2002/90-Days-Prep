@@ -1,0 +1,7 @@
+| Model            | Purpose                                     | Key Relations       |
+| ---------------- | ------------------------------------------- | ------------------- |
+| **User**         | Stores credentials, profile, and wallet ref | 1:1 → Wallet        |
+| **Wallet**       | Manages balance and user link               | 1:N → Transactions  |
+| **Transaction**  | Tracks fund movement                        | Refers to 2 wallets |
+| **Reward**       | Stores cashback/bonus details               | 1:N → User          |
+| **FixedDeposit** | Savings instrument                          | 1:N → User          |
