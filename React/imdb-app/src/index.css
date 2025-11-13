@@ -58,10 +58,6 @@ i {
   cursor: pointer;
 }
 
-img {
-  border-radius: 10px;
-}
-
 /* Navbar Styles */
 .navbar {
   display: flex;
@@ -91,8 +87,43 @@ img {
 .watch-list,
 .movie-details {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.movies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.movie-card {
+  border: 1px solid #ccc;
+  border-radius: 15px;
+}
+
+.movie-card img {
+  height: 400px;
+  width: 400px;
+  border-radius: 15px;
+}
+
+.movie-card .movie-info {
+  padding: 1rem 0;
+  text-align: center;
+}
+
+/* Pagination */
+.pagination {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
 }
 
 /* Responsive Design */
