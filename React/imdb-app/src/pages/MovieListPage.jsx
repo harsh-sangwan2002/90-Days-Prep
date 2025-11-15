@@ -1,10 +1,10 @@
 import MovieList from "../components/MovieList"
 
-const MovieListPage = () => {
+const MovieListPage = ({ watchlist, setWatchlist }) => {
     return (
         <section className="movie-list">
             <h1>Movie List Page</h1>
-            <MovieList />
+            <MovieList watchlist={watchlist} setWatchlist={setWatchlist} />
         </section>
     )
 }

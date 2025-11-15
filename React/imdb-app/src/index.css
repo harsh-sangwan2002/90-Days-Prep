@@ -84,7 +84,6 @@ i {
 
 /* Movie-List Page */
 .movie-list,
-.watch-list,
 .movie-details {
   display: flex;
   flex-direction: column;
@@ -124,6 +123,46 @@ i {
   align-items: center;
   gap: 1rem;
   margin: 2rem 0;
+}
+
+/* WatchList Page */
+.watch-list h1 {
+  text-align: center;
+}
+
+.watch-list .container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5rem;
+}
+
+.watch-list .left-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 0.5;
+}
+
+.watch-list .left-section button {
+  width: 100%;
+  padding: 1rem;
+}
+
+.watch-list input {
+  width: 98%;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.watch-list table td,
+th {
+  padding: 0.5rem;
+}
+
+table img {
+  height: 150px;
+  width: 150px;
 }
 
 /* Responsive Design */
