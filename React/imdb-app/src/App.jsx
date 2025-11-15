@@ -4,6 +4,7 @@ import MovieDetailsPage from './pages/MovieDetailsPage'
 import WatchListPage from './pages/WatchListPage'
 import Navbar from './components/Navbar'
 import { useState } from 'react'
+import WatchListProvider from './context/WatchlistContext'
 
 const App = () => {
 
@@ -11,12 +12,14 @@ const App = () => {
 
   return (
     <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<MovieListPage watchlist={watchlist} setWatchlist={setWatchlist} />} />
-        <Route path="/details" element={<MovieDetailsPage />} />
-        <Route path="/watchlist" element={<WatchListPage watchlist={watchlist} setWatchlist={setWatchlist} />} />
-      </Routes>
+      <WatchListProvider value={{ watchlist, setWatchlist }}>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<MovieListPage watchlist={watchlist} setWatchlist={setWatchlist} />} />
+          <Route path="/details" element={<MovieDetailsPage />} />
+          <Route path="/watchlist" element={<WatchListPage watchlist={watchlist} setWatchlist={setWatchlist} />} />
+        </Routes>
+      </WatchListProvider>
     </Router>
   )
 }

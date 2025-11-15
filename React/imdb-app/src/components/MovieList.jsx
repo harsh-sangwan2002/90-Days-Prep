@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import Movie from "./Movie";
 import Pagination from "./Pagination";
 
-const MovieList = ({ watchlist, setWatchlist }) => {
+const MovieList = () => {
 
     const [movies, setMovies] = useState([]);
     const [currPage, setCurrPage] = useState(1);
@@ -24,7 +24,7 @@ const MovieList = ({ watchlist, setWatchlist }) => {
             <section className="movies">
                 {
                     movies.map(movie => (
-                        <Movie movie={movie} key={movie.id} watchlist={watchlist} setWatchlist={setWatchlist} />
+                        <Movie movie={movie} key={movie.id} />
                     ))
                 }
             </section>
