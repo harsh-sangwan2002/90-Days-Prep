@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "./Counter";
+import watchListReducer from "./WatchList";
 
 const store = configureStore({
     reducer: {
-        counter: counterReducer,
+        // counter: counterReducer,
+        watchlist: watchListReducer,
     },
 });
 
