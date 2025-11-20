@@ -1,15 +1,23 @@
-import { fireEvent, render, screen } from "@testing-library/react"
-import { expect } from 'vitest';
-import App from "../App"
+import { fireEvent, render, screen } from '@testing-library/react';
+import App from '../App';
 
-test("Counter renders 0 value by default", () => {
+test("Counter renders 0 by default", () => {
     render(<App />);
-    expect(screen.getByText("Count: 0")).toBeInTheDocument();
-})
+    const val = screen.getByText('Count: 0');
+    expect(val).toBeInTheDocument();
+});
 
-test("Counter increments the value when + button is clicked", () => {
+test("Counter increments and decrements correctly", () => {
     render(<App />);
-    const incrementButton = screen.getByText('+');
-    fireEvent.click(incrementButton);
-    expect(screen.getByText("Count: 1")).toBeInTheDocument();
+
+    const increment = screen.getByText('+');
+    const decrement = screen.getByText('-');
+    const counterValue = screen.getByText('Count: 0');
+
+    // Initial value should be 0
+    expect(counterValue).toHaveTextContent('Count: 0');
+
+    // Click increment
+    fireEvent.click(increment);
+    expect(counterValue).toHaveTextContent('Count: 1');
 });

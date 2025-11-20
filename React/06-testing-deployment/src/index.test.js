@@ -1,7 +1,6 @@
-import { expect } from 'vitest';
-import incrementByTwo from './utils/math'
+import indrementByTwo from "./utils/math";
 
-test('Increment by two function working', () => {
-    const value = incrementByTwo(2);
-    expect(value).toBe(4);
+test("Test increment by two function", () => {
+    const value = indrementByTwo(5);
+    expect(value).toBe(7);
 })
