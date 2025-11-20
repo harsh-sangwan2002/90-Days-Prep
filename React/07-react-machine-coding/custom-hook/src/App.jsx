@@ -7,8 +7,8 @@ function App() {
   return (
     <div className="App">
       <h1>Custom Hook</h1>
-      {/* <GitHubProfile /> */}
-      <DebouncedSearch />
+      <GitHubProfile />
+      {/* <DebouncedSearch /> */}
     </div>
   )
 }

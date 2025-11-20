@@ -1,9 +1,11 @@
 import { useState } from "react"
 import useGitHubUser from "../hooks/useGitHubUser"
+import useDebounce from "../hooks/useDebounce";
 
 const GitHubProfile = () => {
     const [username, setUsername] = useState('')
-    const { data, error, loading } = useGitHubUser(username);
+    const debouncedUsername = useDebounce(username);
+    const { data, error, loading } = useGitHubUser(debouncedUsername);
 
     console.log({ data, error, loading });
     return (
