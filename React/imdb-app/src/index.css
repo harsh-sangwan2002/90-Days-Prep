@@ -126,15 +126,18 @@ i {
 }
 
 /* WatchList Page */
-.watch-list h1 {
-  text-align: center;
+.watch-list .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
 }
 
 .watch-list .container {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 5rem;
+  gap: 10rem;
 }
 
 .watch-list .left-section {
@@ -155,7 +158,7 @@ i {
   margin-bottom: 0.5rem;
 }
 
-.watch-list table td,
+table td,
 th {
   padding: 0.5rem;
 }
@@ -163,6 +166,14 @@ th {
 table img {
   height: 150px;
   width: 150px;
+}
+
+/* Movie Details */
+.movie-details .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
 }
 
 /* Responsive Design */

@@ -1,5 +1,7 @@
-import { useContext, useEffect, useState } from "react";
-import { WatchListContext } from "../context/WatchlistContext";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { removeFromWatchList } from "../redux/WatchList";
 
 let genre_ids = {
     28: "Action",
@@ -26,11 +28,17 @@ let genre_ids = {
 const WatchListPage = () => {
 
     const [list, setList] = useState([]);
-    const { watchlist } = useContext(WatchListContext);
+    const watchlist = useSelector(state => state.watchlist);
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     useEffect(() => {
         setList(Object.values(watchlist));
-    }, [])
+    }, [watchlist]);
+
+    const handleRemove = (movieId) => {
+        dispatch(removeFromWatchList(movieId));
+    }
 
     const handleList = (e) => {
         const movie = e.target.value.toLowerCase();
@@ -53,7 +61,10 @@ const WatchListPage = () => {
 
     return (
         <section className="watch-list">
-            <h1>WatchList Page</h1>
+            <div className="content">
+                <button onClick={() => navigate(-1)}>Go Back</button>
+                <h1>WatchList Page</h1>
+            </div>
             <div className="container">
                 <div className="left-section">
                     <button onClick={() => handleGenreSelection()}>All</button>
@@ -74,6 +85,7 @@ const WatchListPage = () => {
                                 <th>Popularity</th>
                                 <th>Vote Count</th>
                                 <td>Genres</td>
+                                <td>Remove</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -86,6 +98,7 @@ const WatchListPage = () => {
                                         <td>{movie.popularity}</td>
                                         <td>{movie.vote_average}</td>
                                         <td>{movie.genre_ids.map(genre => genre_ids[genre]).join(", ")}</td>
+                                        <td><button onClick={() => handleRemove(movie.id)}>Remove</button></td>
                                     </tr>
                                 ))
                             }

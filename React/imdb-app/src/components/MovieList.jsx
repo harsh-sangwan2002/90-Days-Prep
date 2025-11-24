@@ -1,22 +1,17 @@
 import { useEffect, useState } from "react"
 import Movie from "./Movie";
 import Pagination from "./Pagination";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchMovies } from "../redux/Movies";
 
 const MovieList = () => {
 
-    const [movies, setMovies] = useState([]);
+    const movies = useSelector(state => state.movie.movies);
     const [currPage, setCurrPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(0);
-
-    const fetchMovies = async (page) => {
-        const res = await fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=3aec63790d50f3b9fc2efb4c15a8cf99&language=en-US&page=${page}`);
-        const data = await res.json();
-        setMovies(data.results);
-        setTotalPages(data.total_pages);
-    }
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        fetchMovies(currPage);
+        dispatch(fetchMovies(currPage));
     }, [currPage]);
 
     return (
@@ -28,7 +23,7 @@ const MovieList = () => {
                     ))
                 }
             </section>
-            <Pagination currPage={currPage} setCurrPage={setCurrPage} totalPages={totalPages} />
+            <Pagination currPage={currPage} setCurrPage={setCurrPage} />
         </section>
     )
 }

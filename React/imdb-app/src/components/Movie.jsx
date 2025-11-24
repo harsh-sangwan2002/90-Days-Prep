@@ -1,19 +1,18 @@
-import { useContext } from "react";
-import { WatchListContext } from "../context/WatchlistContext";
+import { useDispatch, useSelector } from "react-redux";
+import { addToWatchList, removeFromWatchList } from "../redux/WatchList";
 
 const Movie = ({ movie }) => {
 
-    const { watchlist, setWatchlist } = useContext(WatchListContext);
+    const watchlist = useSelector(state => state.watchlist);
+    const dispatch = useDispatch();
 
     const handleWatchlist = () => {
         if (watchlist[movie.id]) {
-            const obj = watchlist;
-            delete obj[movie.id];
-            setWatchlist(obj);
+            dispatch(removeFromWatchList(movie.id));
         }
 
         else
-            setWatchlist({ ...watchlist, [movie.id]: movie })
+            dispatch(addToWatchList(movie));
     }
 
     return (

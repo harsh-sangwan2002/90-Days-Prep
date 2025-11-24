@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
-const Pagination = ({ currPage, setCurrPage, totalPages }) => {
+const Pagination = ({ currPage, setCurrPage }) => {
+    const totalPages = useSelector(state => state.movie.totalPages);
     const [pages, setPages] = useState([]);
     const THRESHOLD = 8;
 
