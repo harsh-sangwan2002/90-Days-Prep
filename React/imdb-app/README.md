@@ -8,7 +8,7 @@ This project involves building an IMDB (Internet Movie Database) clone using **R
 
 ## Live Demo
 
-[Link](https://harsh-imdb-app.vercel.app/)
+[Link](https://imdb-app-harsh.vercel.app/)
 
 ## Introduction
 
