@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { removeFromWatchList } from "../redux/WatchList";
@@ -36,28 +36,28 @@ const WatchListPage = () => {
         setList(Object.values(watchlist));
     }, [watchlist]);
 
-    const handleRemove = (movieId) => {
+    const handleRemove = useCallback((movieId) => {
         dispatch(removeFromWatchList(movieId));
-    }
+    }, [dispatch]);
 
-    const handleList = (e) => {
+    const handleList = useCallback((e) => {
         const movie = e.target.value.toLowerCase();
         const filteredMovies = Object.values(watchlist).filter(m => m.title.toLowerCase().includes(movie));
         setList(filteredMovies);
-    }
+    }, [watchlist]);
 
-    const selectedGenres = () => {
+    const selectedGenres = useMemo(() => {
         let genreList = [];
         Object.values(watchlist).forEach(movie => {
             genreList.push(...movie.genre_ids)
         })
         return [...new Set(genreList)];
-    }
+    }, [watchlist]);
 
-    const handleGenreSelection = (genreId) => {
+    const handleGenreSelection = useCallback((genreId) => {
         const newList = Object.values(watchlist).filter(movie => genreId ? movie.genre_ids.includes(genreId) : true);
         setList(newList);
-    }
+    }, [watchlist]);
 
     return (
         <section className="watch-list">
@@ -69,7 +69,7 @@ const WatchListPage = () => {
                 <div className="left-section">
                     <button onClick={() => handleGenreSelection()}>All</button>
                     {
-                        selectedGenres().map((genre => (
+                        selectedGenres.map((genre => (
                             <button key={genre} onClick={() => handleGenreSelection(genre)}>{genre_ids[genre]}</button>
                         )))
                     }

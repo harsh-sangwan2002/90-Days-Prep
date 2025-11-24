@@ -28,7 +28,6 @@ let genre_ids = {
 
 const MovieDetailsPage = () => {
     const list = useSelector(state => state.movie.movies);
-    console.log(list);
     const [currPage, setCurrPage] = useState(1);
     const navigate = useNavigate();
     const dispatch = useDispatch();
