@@ -215,6 +215,18 @@ table img {
   h1 {
     font-size: 2em;
   }
+
+  .watch-list .container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .watch-list .left-section {
+    width: 50%;
+    flex: none;
+  }
 }
 
 @media (max-width: 480px) {
