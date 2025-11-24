@@ -1,10 +1,5 @@
 import { useState } from 'react'
 import './App.css'
-import Parent from './components/Parent'
-import SearchInput from './components/SearchInput'
-import CommentBox from './components/CommentBox'
-import Accordian from './components/Accordian'
-import Comments from './components/CommentBox/Comments'
 
 function App() {
   const [list, setList] = useState(['Item 1', 'Item 2', 'Item 3'])
@@ -18,20 +13,15 @@ function App() {
 
   return (
     <div>
-      {/* <h1>Todo App</h1>
+      <h1>Todo App</h1>
       <input id='item' type="text" placeholder='Add new Todo' onKeyDown={handleNewTodo} />
       <ul>
         {
-          list.map(item => (
-            <li key={item}>{item}</li>
+          list.map((item, idx) => (
+            <li key={idx}>{item}</li>
           ))
         }
-      </ul> */}
-      {/* <Parent /> */}
-      {/* <SearchInput /> */}
-      {/* <CommentBox /> */}
-      {/* <Accordian /> */}
-      <Comments />
+      </ul>
     </div>
   )
 }
