@@ -1,0 +1,16 @@
+{
+  "name": "01-intro-to-node-be",
+  "version": "1.0.0",
+  "description": "Node.js is a JavaScript runtime built on Chrome’s V8 engine. It allows developers to run JavaScript on the server, enabling fast, scalable, and event-driven backend applications. It is widely used for APIs, microservices, real-time applications, and full-stack development.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
