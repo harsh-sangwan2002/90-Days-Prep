@@ -1,0 +1,17 @@
+{
+  "name": "02-mongodb-mongoose-mvc",
+  "version": "1.0.0",
+  "description": "The HTTP module in Node.js allows you to create a basic web server capable of receiving requests and sending responses. A server is typically created by importing the HTTP module, initializing a server instance, and defining how the server responds to different requests using the request and response objects. The server sends output using methods that write data to the response stream and then closes the response when finished.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "nodemon": "^3.1.11"
+  }
+}
