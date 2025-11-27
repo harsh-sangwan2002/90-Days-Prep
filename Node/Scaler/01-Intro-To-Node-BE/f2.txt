@@ -1,0 +1,1 @@
+This is the new content for f2.txt file
