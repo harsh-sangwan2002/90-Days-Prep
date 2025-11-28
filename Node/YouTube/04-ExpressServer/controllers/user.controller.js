@@ -20,7 +20,7 @@ const protectRoute = async (req, res, next) => {
     let token;
     if (req.cookies.login) {
         token = req.cookies.login;
-        let payload = jwt.verify(req.cookies.login, process.env.JWT_SECRET);
+        let payload = jwt.verify(token, process.env.JWT_SECRET);
         const user = await userModel.findById(payload.payload);
         req.role = user.role;
         req.id = user.id;
