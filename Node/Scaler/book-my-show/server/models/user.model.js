@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -12,7 +13,11 @@ const userSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: true
+        required: true,
+    },
+    phone: {
+        type: Number,
+        required: true,
     },
     role: {
         type: String,
@@ -20,6 +25,17 @@ const userSchema = new mongoose.Schema({
         default: 'user'
     }
 }, { timestamps: true });
+
+userSchema.pre('save', async function () {
+    try {
+        const user = this;
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(user.password, salt);
+        user.password = hashedPassword;
+    } catch (err) {
+        console.log("Error is: ", err);
+    }
+})
 
 const User = mongoose.model('User', userSchema);
 
