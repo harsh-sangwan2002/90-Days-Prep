@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class PrintOddValues {
+
+    public static void main(String[] args) {
+
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt(), count = 1;
+
+        while (count <= n) {
+            System.out.println(count);
+            count += 2;
+        }
+
+        scn.close();
+    }
+}
