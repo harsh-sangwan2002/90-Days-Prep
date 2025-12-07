@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML & CSS Sandbox</title>
+</head>
+
+<body>
+    <h1>HTML & CSS Sandbox - DataList</h1>
+    <form>
+        <div>
+            <label for="favLanguages">Favourite Programming Languages</label>
+            <input list="languages" id="favLanguages" name="favLanguages">
+            <datalist id="languages">
+                <option value="JavaScript"></option>
+                <option value="PHP"></option>
+                <option value="Python"></option>
+                <option value="C++"></option>
+                <option value="C#"></option>
+                <option value="Rust"></option>
+                <option value="Go"></option>
+            </datalist>
+        </div>
+        <br>
+
+        <div>
+            <label for="time">Time</label>
+            <input type="time" list="popularHours">
+            <datalist id="popularHours">
+                <option value="12:00"></option>
+                <option value="09:00"></option>
+                <option value="06:00"></option>
+            </datalist>
+        </div>
+        <br>
+
+        <div>
+            <button>Submit</button>
+        </div>
+    </form>
+</body>
+
+</html>
