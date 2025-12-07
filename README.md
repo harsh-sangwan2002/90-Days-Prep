@@ -1,59 +1,117 @@
 # 🚀 90 Days Prep for Career Switch
 
-Inspired by [Akshay Saini's](https://www.linkedin.com/in/akshaymarch7/) recent video, I’ve committed the next **90 days** to intensely prepare for switching companies and leveling up my software engineering skills.
-
-This repo will serve as a daily tracker and documentation of my journey.
+Inspired by [Akshay Saini's](https://www.linkedin.com/in/akshaymarch7/) recent video, I've committed the next **90 days** to intensely prepare for switching companies and leveling up my software engineering skills. This repo will serve as a daily tracker and documentation of my journey.
 
 ---
 
 ## 🎯 Goals
 
-- ✅ **Data Structures & Algorithms (DSA)** – 2 hours daily
-- ✅ **React + Real-World Projects** – Hands-on frontend work (1 hours daily)
-- ✅ **Operating Systems, DBMS, and CN** – Any One (1 hour daily)
+Building a strong foundation across the full stack and preparing for technical interviews through consistent daily practice in:
+
+- ✅ **Data Structures & Algorithms**
+- ✅ **Frontend Development** – HTML, CSS, JavaScript, TypeScript, React, Redux
+- ✅ **Backend Development** – Node.js, Express, Java, Spring, Spring Boot
+- ✅ **Databases** – SQL, MySQL, PostgreSQL, MongoDB, Prisma
+- ✅ **Advanced Topics** – System Design (HLD/LLD), Microservices, Real-time Communication
+- ✅ **DevOps & Cloud** – Docker, Kubernetes, AWS
+- ✅ **Core Java** – Advanced Java, Java 17+, Advanced Programming Concepts
 
 ---
 
 ## 📅 Daily Log
 
-| Day | DSA Progress                            | Project Work                     | OS/DBMS                                 |
-| --- | --------------------------------------- | -------------------------------- | --------------------------------------- |
-| 1   | ✅ Solved 15 problems (Arrays, Strings) | ✅ Started Movie App using React | ✅ Revised Process, Threads, Scheduling |
-| 2   | ⏳ Coming Soon                          | ⏳ Coming Soon                   | ⏳ Coming Soon                          |
-| ... | ...                                     | ...                              | ...                                     |
+| Day | Date  | DSA Progress                                                 | Frontend/Backend Work                                   |
+| --- | ----- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| 1   | 5 Dec | ✅ Data Types in Java, Typecasting, I/O, If-Else, While loop | ✅ HTML tag, body, inline vs block, images, anchor tags |
+| 2   | 6 Dec | ✅ For-loop, Patterns & Functions                            | ✅ Semantic HTML, one challenge                         |
+| 3   | 7 Dec | ✅ Arrays, ArrayLists, HashSet, HashMap, Strings             | ✅ Forms & Inputs, more HTML5 elements                  |
+| 4   | 8 Dec | ⏳ Coming Soon                                               | ⏳ Coming Soon                                          |
+| ... | ...   | ...                                                          | ...                                                     |
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Tech Stack & Topics
 
-- **DSA Platforms**: LeetCode, InterviewBit, CodeStudio
-- **Frontend**: React.js, TailwindCSS, Redux
-- **Backend (optional)**: Node.js, Express
-- **CS Core**: OS (Scheduling, Memory, Threads), DBMS (Joins, Indexing, Transactions), CN
+### **Programming Languages**
+
+- Java (Core + Advanced + Java 17+)
+- JavaScript
+- TypeScript
+- Python
+
+### **Frontend**
+
+- HTML5 & CSS3
+- JavaScript (ES6+)
+- TypeScript
+- React.js
+- Redux
+
+### **Backend**
+
+- Node.js & Express
+- Java Spring & Spring Boot
+- Advanced Programming Concepts
+
+### **Databases**
+
+- SQL
+- MySQL
+- PostgreSQL
+- MongoDB
+- Prisma ORM
+
+### **System Design & Architecture**
+
+- High-Level Design (HLD)
+- Low-Level Design (LLD)
+
+### **Microservices & Communication**
+
+- Socket.io
+- RabbitMQ
+- Apache Kafka
+- Redis
+
+### **DevOps & Cloud**
+
+- Docker
+- Kubernetes
+- AWS
+
+### **DSA Platforms**
+
+- LeetCode
+- InterviewBit
+- Scaler
 
 ---
 
 ## 📌 Why I'm Doing This
 
-> “Discipline beats motivation.”  
-> Consistency compounds over time. I’m building habits that will not only help me switch to a better role but make me a better engineer overall.
+> "Discipline beats motivation."  
+> Consistency compounds over time.
+
+I'm building habits that will not only help me switch to a better role but make me a better engineer overall. This journey is about mastering fundamentals, building real-world projects, and developing the problem-solving skills needed to excel in technical interviews.
 
 ---
 
-## 🤝 Let’s Connect
+## 🤝 Let's Connect
 
-If you’re preparing for interviews or working on your own 90-day journey, feel free to reach out and collaborate.
+If you're preparing for interviews or working on your own 90-day journey, feel free to reach out and collaborate.
 
-- 🔗 [LinkedIn](https://www.linkedin.com/in/your-profile)
-- 🐙 [GitHub](https://github.com/your-username)
+- 🔗 [LinkedIn](https://www.linkedin.com/in/harsh-sangwan2002)
+- 🐙 [GitHub](https://github.com/harsh-sangwan2002)
 
 ---
 
 ## 📚 Useful Resources
 
 - [Akshay Saini – Motivation Video](https://www.youtube.com/watch?v=2pG8rgl_omc)
-- [Notes](https://github.com/harsh-sangwan2002/90-Days-Prep/tree/main/Notes)
+- [Notes](https://github.com/harsh-sangwan2002/90-Days-Prep)
 
 ---
 
-## 🔥 Let’s Grow Together!
+## 🔥 Let's Grow Together!
+
+**Day 1** ✅ | **Day 2** ✅ | **Day 3** ✅ | **Day 4** ⏳ | ... | **Day 90** 🎯
