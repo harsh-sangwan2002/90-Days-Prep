@@ -1,0 +1,50 @@
+html {
+    border: 1px solid blue;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    /* Border is not inherited */
+    border: 1px solid red;
+}
+
+/* Type selector */
+/* h2 {
+    color: red;
+    font-size: 30px;
+}
+
+a {
+    color: blue;
+    text-decoration: none;
+} */
+
+/* Class selector */
+.sporty {
+    color: red;
+}
+
+.casual {
+    color: blue;
+}
+
+.formal {
+    color: brown;
+}
+
+/* ID selector */
+#container {
+    margin: 100px auto;
+    max-width: 600px;
+    padding: 20px;
+}
+
+.sporty,
+.casual {
+    font-size: 35px;
+}
+
+/* Descendant styles */
+#container p {
+    background-color: blue;
+}
