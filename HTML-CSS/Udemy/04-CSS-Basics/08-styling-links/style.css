@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* Hover */
+a:hover {
+    color: red;
+}
+
+/* Active */
+a:active {
+    color: blue;
+}
+
+/* Focus */
+a:focus {
+    background-color: yellow;
+}
+
+/* Visited */
+a:visited {
+    color: coral;
+}
