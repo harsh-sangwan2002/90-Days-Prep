@@ -1,3 +1,5 @@
+// TC -> O(N)
+// SC -> O(1)
 public class ArrayRotation {
 
     private void swap(int[] arr, int x, int y) {

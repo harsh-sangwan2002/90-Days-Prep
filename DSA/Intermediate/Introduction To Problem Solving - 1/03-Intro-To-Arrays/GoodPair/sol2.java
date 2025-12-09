@@ -1,6 +1,8 @@
 import java.util.HashSet;
 import java.util.Set;
 
+// TC -> O(N)
+// SC -> O(N)
 public class sol2 {
 
     public int solve(int[] A, int B) {

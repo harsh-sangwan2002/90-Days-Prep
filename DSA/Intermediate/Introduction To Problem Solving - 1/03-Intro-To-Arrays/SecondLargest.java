@@ -1,3 +1,5 @@
+// TC -> O(N)
+// SC -> O(1)
 public class SecondLargest {
 
     public int solve(int[] A) {

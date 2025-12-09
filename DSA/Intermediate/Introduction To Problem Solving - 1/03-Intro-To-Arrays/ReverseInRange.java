@@ -1,3 +1,5 @@
+// TC -> O(N)
+// SC -> O(1)
 public class ReverseInRange {
 
     public int[] solve(int[] A, int B, int C) {

@@ -1,3 +1,5 @@
+// TC -> O(N^2)
+// SC -> O(1)
 public class sol1 {
 
     public int solve(int[] A, int B) {
