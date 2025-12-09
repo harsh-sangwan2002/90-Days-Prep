@@ -1,3 +1,5 @@
+// TC -> O(N*sqrt(N))
+// SC -> O(1)
 public class CountPrimes {
 
     private boolean isPrime(int n) {

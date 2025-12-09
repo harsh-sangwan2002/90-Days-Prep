@@ -1,3 +1,5 @@
+// TC -> O(sqrt(N))
+// SC -> O(1)
 public class PerfectNumbers {
 
     public int solve(int A) {

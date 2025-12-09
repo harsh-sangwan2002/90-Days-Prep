@@ -1,3 +1,5 @@
+// TC -> O(sqrt(N))
+// SC -> O(1)
 public class IsPrime {
 
     public int solve(int A) {
