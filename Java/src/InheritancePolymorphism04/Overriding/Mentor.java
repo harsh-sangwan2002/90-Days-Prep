@@ -1,4 +1,4 @@
-package InheritancePolymorphism.Overriding;
+package InheritancePolymorphism04.Overriding;
 
 public class Mentor extends User{
 

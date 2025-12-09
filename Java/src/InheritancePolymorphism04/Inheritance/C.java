@@ -1,4 +1,4 @@
-package InheritancePolymorphism.Inheritance;
+package InheritancePolymorphism04.Inheritance;
 
 public class C extends B {
     int phone;

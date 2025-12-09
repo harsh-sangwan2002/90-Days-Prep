@@ -1,4 +1,4 @@
-package InheritancePolymorphism.Inheritance;
+package InheritancePolymorphism04.Inheritance;
 
 public class B extends A {
     String name;
