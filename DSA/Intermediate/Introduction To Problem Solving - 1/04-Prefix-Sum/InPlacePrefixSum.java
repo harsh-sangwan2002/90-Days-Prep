@@ -1,3 +1,5 @@
+// TC -> O(N)
+// SC -> O(1)
 public class InPlacePrefixSum {
 
     public int[] solve(int[] A) {
