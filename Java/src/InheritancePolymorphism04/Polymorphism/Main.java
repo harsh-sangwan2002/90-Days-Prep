@@ -9,6 +9,6 @@ public class Main {
         a.age = 27;
         a.email = "abc@gmail.com";
 
-        C c = new A();
+//        C c = new A();
     }
 }
