@@ -20,14 +20,10 @@ Building a strong foundation across the full stack and preparing for technical i
 
 ## 📅 Daily Log
 
-| Day | Date  | DSA Progress                                                                  | Frontend/Backend Work                                                                           |
-| --- | ----- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| 1   | 5 Dec | ✅ Data Types in Java, Typecasting, I/O, If-Else, While loop                  | ✅ HTML tag, body, inline vs block, images, anchor tags                                         |
-| 2   | 6 Dec | ✅ For-loop, Patterns & Functions                                             | ✅ Semantic HTML, one challenge                                                                 |
-| 3   | 7 Dec | ✅ Arrays, ArrayLists, HashSet, HashMap, Strings                              | ✅ Forms & Inputs, more HTML5 elements                                                          |
-| 4   | 8 Dec | ✅ Intro To Problem Solving - 1 (Intro, Time Complexity, and Intro To Arrays) | ✅ Basic CSS - Background, Text, Colors, Link Styling                                           |
-| 4   | 9 Dec | ✅ ISP - 1 (Prefix Sum, Carry Forward, Sliding Window & Contribution)         | ✅ Advanced Java - Intro To OOPS, Access Modifiers, Constructors, Inheritance, and Polymorphism |
-| ... | ...   | ...                                                                           | ...                                                                                             |
+| Day | Date  | DSA Progress | Frontend/Backend Work |
+| --- | ----- | ------------ | --------------------- |
+| 1   | 5 Dec |              |                       |
+| ... | ...   | ...          | ...                   |
 
 ---
 
@@ -39,10 +35,13 @@ Building a strong foundation across the full stack and preparing for technical i
 - JavaScript
 - TypeScript
 - Python
+- C++
+- C
 
 ### **Frontend**
 
 - HTML5 & CSS3
+- Tailwind, Bootstrap, Material UI, Antd
 - JavaScript (ES6+)
 - TypeScript
 - React.js
