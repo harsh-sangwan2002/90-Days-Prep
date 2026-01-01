@@ -1,5 +1,6 @@
 // TC -> O(N^2)
 // SC -> O(1)
+// Non-stable
 public class SelectionSort {
 
     public static void swap(int[] A, int x, int y) {

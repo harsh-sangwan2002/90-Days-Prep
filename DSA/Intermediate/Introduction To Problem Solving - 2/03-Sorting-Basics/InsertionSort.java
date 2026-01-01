@@ -1,5 +1,6 @@
 // TC -> O(N^2)
 // SC -> O(1)
+// Stable Sorting Algo
 public class InsertionSort {
 
     public static void swap(int[] A, int x, int y) {
