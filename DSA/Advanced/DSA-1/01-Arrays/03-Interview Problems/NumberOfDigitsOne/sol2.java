@@ -1,6 +1,8 @@
+package NumberOfDigitsOne;
+
 // TC -> O(1)
 // SC -> O(1)
-public class NumberOfDigitsOne {
+public class sol2 {
 
     public int solve(int A) {
 
