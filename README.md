@@ -26,7 +26,7 @@ Building a strong foundation across the full stack and preparing for technical i
 | 2   | 30 Dec | Prefix Sum, Carry Forward, and Sliding Window & Contribution                  | Intro To Spring, Spring Boot, DI, and IOC Container                                   |
 | 3   | 31 Dec | IPS 2 started - 2D matrices, Memory Management, and Sorting Basics            | Rest APIs, HTTP & Calling 3rd party APIs                                              |
 | 4   | 1 Jan  | Bit Maniplation, Strings, and Interview Problems                              | How Requests work in Spring, Calling 3rd Party APIs                                   |
-| 5   | 2 Jan  | Advanced DSA started - Arrays(One D, Two D, IP)                               | Intro To ORMs, Models, Cardinalities & Spring Data JPA, Hibernate, Repository Pattern |
+| 5   | 2 Jan  | Advanced DSA 1 started - Arrays(One D, Two D, IP)                               | Intro To ORMs, Models, Cardinalities & Spring Data JPA, Hibernate, Repository Pattern |
 | ... | ...    | ...                                                                           | ...                                                                                   |
 
 ---
