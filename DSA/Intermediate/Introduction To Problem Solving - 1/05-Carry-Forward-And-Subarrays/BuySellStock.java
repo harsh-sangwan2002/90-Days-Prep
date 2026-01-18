@@ -8,14 +8,13 @@ public class BuySellStock {
         if (A == null || A.length == 0)
             return 0;
 
-        int min = A[0], ans = 0;
-
+        int max = 0, min = A[0];
         for (int val : A) {
-            min = Math.min(min, val);
+            min = Math.max(min, val);
             int curr = val - min;
-            ans = Math.max(ans, curr);
+            max = Math.max(max, curr);
         }
 
-        return ans;
+        return max;
     }
 }

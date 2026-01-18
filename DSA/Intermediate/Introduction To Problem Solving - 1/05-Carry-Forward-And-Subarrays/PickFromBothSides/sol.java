@@ -30,8 +30,8 @@ public class sol {
         int max = Math.max(pre[B - 1], suf[n - B]);
 
         for (int i = B - 1; i > 0; i--) {
-            int sum = pre[i - 1] + suf[n - B + i];
-            max = Math.max(max, sum);
+            int curr = pre[i - 1] + suf[n - B + i];
+            max = Math.max(max, curr);
         }
 
         return max;

@@ -4,18 +4,21 @@ public class SpecialSubsequences {
 
     public int solve(String A) {
 
-        long mod = (long) (1e9 + 7);
-        long countA = 0L, countAG = 0L;
+        long ans = 0L, mod = (long) (1e9 + 7);
+        long countA = 0;
+        int n = A.length();
 
-        for (char ch : A.toCharArray()) {
+        for (int i = 0; i < n; i++) {
+
+            char ch = A.charAt(i);
 
             if (ch == 'A')
                 countA = (countA + 1) % mod;
 
             else if (ch == 'G')
-                countAG = (countA + countAG) % mod;
+                ans = (ans + countA) % mod;
         }
 
-        return (int) countAG;
+        return (int) ans;
     }
 }

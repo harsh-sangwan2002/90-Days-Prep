@@ -1,5 +1,5 @@
 // TC -> O(N^3)
-// SC -> O(N^3)
+// SC -> O(N^2)
 public class GenerateAllSubarrays {
 
     public int[][] solve(int[] A) {
@@ -10,6 +10,7 @@ public class GenerateAllSubarrays {
         for (int i = 0; i < n; i++) {
 
             for (int j = i; j < n; j++) {
+
                 int[] temp = new int[j - i + 1];
 
                 for (int k = i; k <= j; k++)

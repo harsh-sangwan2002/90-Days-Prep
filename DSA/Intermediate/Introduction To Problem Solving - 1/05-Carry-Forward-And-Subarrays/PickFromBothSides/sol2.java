@@ -6,22 +6,20 @@ public class sol2 {
 
     public int solve(int[] A, int B) {
 
-        int sum = 0;
+        int n = A.length, sum = 0;
 
         for (int i = 0; i < B; i++)
             sum += A[i];
 
-        int max = sum;
-
-        int j = A.length - 1, i = B - 1;
+        int max = sum, j = n - 1, i = B - 1;
 
         while (i >= 0) {
             sum -= A[i];
             sum += A[j];
-            max = Math.max(sum, max);
+            max = Math.max(max, sum);
 
-            j--;
             i--;
+            j--;
         }
 
         return max;
