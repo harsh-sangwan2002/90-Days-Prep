@@ -24,6 +24,7 @@ public class SpecialIndex {
         }
 
         for (int i = 0; i < n; i++) {
+
             int evenSum = 0, oddSum = 0;
 
             if (i == 0) {
@@ -41,7 +42,7 @@ public class SpecialIndex {
                 oddSum = odd[i - 1] + (even[n - 1] - even[i]);
             }
 
-            if (oddSum == evenSum)
+            if (evenSum == oddSum)
                 count++;
         }
 

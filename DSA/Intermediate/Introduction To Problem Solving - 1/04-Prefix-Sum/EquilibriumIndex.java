@@ -10,6 +10,7 @@ public class EquilibriumIndex {
             A[i] += A[i - 1];
 
         for (int i = 0; i < n; i++) {
+
             int left = 0, right = 0;
 
             if (i == 0)
