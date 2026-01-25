@@ -2,38 +2,38 @@ var x = 123;
 console.log(x);
 console.log(typeof x); // number
 
-x = "Hello";
+console.log("--------------------");
+
+x = "Hello World!";
 console.log(x);
 console.log(typeof x); // string
+
+console.log("--------------------");
 
 x = true;
 console.log(x);
 console.log(typeof x); // boolean
 
+console.log("--------------------");
+
 x = null;
 console.log(x);
 console.log(typeof x); // object
+
+console.log("--------------------");
 
 x = undefined;
 console.log(x);
 console.log(typeof x); // undefined
 
-x = Symbol("id");
-console.log(x);
-console.log(typeof x); // symbol
+console.log("--------------------");
 
-x = BigInt(9007199254740991);
+x = BigInt('123656725376');
 console.log(x);
 console.log(typeof x); // bigint
 
-x = { name: "Alice", age: 30 };
-console.log(x);
-console.log(typeof x); // object
+console.log("--------------------");
 
-x = [1, 2, 3];
+x = Symbol('123');
 console.log(x);
-console.log(typeof x); // object
-
-x = function () { return "I am a function"; };
-console.log(x);
-console.log(typeof x); // function
+console.log(typeof x); // symbol
