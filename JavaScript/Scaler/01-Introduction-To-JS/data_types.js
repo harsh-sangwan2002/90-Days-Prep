@@ -37,3 +37,7 @@ console.log("--------------------");
 x = Symbol('123');
 console.log(x);
 console.log(typeof x); // symbol
+
+// Variable naming convention
+// [a-z][A-Z][0-9]$_ = Valid character
+// [a-z][A-Z]$_ = Valid starting character
