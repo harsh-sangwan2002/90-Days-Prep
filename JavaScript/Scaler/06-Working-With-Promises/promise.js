@@ -1,36 +1,36 @@
-const promise = new Promise((resolve, reject) => {
+const res = new Promise(function (resolve, reject) {
 
-    const passing_marks = 75;
-    let current_marks = 85;
+    // Passing marks are 70%
+    const passing_marks = 70, current_marks = 80;
 
-    if (current_marks >= passing_marks) {
-        resolve("Student has passed");
-    } else {
-        reject("Student has failed");
-    }
+    if (current_marks > passing_marks)
+        resolve('Passed!');
+
+    else
+        reject('Failed!');
 })
 
-const toss = new Promise((resolve, reject) => {
+res.then(data => {
+    console.log(data);
+    console.log(res);
+}).catch(err => {
+    console.log(err);
+    console.log(res);
+})
+
+const toss = new Promise(function (res, rej) {
+
     const isHead = Math.random() > 0.5;
-    if (isHead == 0) {
-        resolve("Head");
-    } else {
-        reject("Tail");
-    }
+
+    if (isHead)
+        res('Promise resolved');
+
+    else
+        rej('Promise rejected');
 })
 
-console.log('Before');
-
-promise.then((data) => {
-    console.log("then-> " + data);
-}).catch((err) => {
-    console.log("catch-> " + err);
+toss.then(res => {
+    console.log(res);
+}).catch(err => {
+    console.log(err);
 })
-
-toss.then((data) => {
-    console.log("then-> " + data);
-}).catch((err) => {
-    console.log("catch-> " + err);
-})
-
-console.log('After');
