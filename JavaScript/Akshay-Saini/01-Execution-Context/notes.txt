@@ -1,0 +1,8 @@
+• Everything in JS happens inside Execution Context.
+• Execution Context has two component 
+    - Memory Component (Variable env)
+    - Code (Thread of execution)
+• JS is a synchronous and single-threaded language
+    - Can execute one line at a time in a specific order
+    - Synchronous means blocking
+    - Single-threaded means JS has only one call stack
