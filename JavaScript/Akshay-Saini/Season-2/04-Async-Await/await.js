@@ -14,13 +14,15 @@ const p2 = new Promise((resolve, reject) => {
 async function handlePromise() {
     console.log("Hello World!");
 
-    const val = await p1;
-    console.log("Namaste JS 1");
-    console.log(val);
+    setTimeout(async () => {
+        const val = await p1;
+        console.log("Namaste JS 1");
+        console.log(val);
 
-    const val2 = await p2;
-    console.log("Namaste JS 2");
-    console.log(val2);
+        const val2 = await p2;
+        console.log("Namaste JS 2");
+        console.log(val2);
+    }, 6000);
 }
 handlePromise();
 
