@@ -15,6 +15,7 @@ Select title from film where description Is Null;
 Order By
 asc - ascending
 desc - descending
+When DISTINCT is used, every column in ORDER BY must appear in the SELECT list.
 */
 Select * from film order by description;
 
