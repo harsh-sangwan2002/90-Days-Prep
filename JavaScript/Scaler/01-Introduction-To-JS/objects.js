@@ -29,3 +29,12 @@ console.log(obj3);
 var g = {};
 obj3[g] = "Object";
 console.log(obj3);
+
+var obj = {
+    1: true,
+    "1": false
+}
+// console.log(obj.1); // error
+// console.log(obj."1"); // error
+console.log(obj[1]); // false
+console.log(obj["1"]); // false
