@@ -8,3 +8,5 @@ console.log(0 == ''); // true
 console.log(0 == undefined); // false
 console.log(null == undefined); // true
 console.log(NaN == NaN); // false
+console.log([] == false); // true
+console.log({} == '[object Object]'); // true

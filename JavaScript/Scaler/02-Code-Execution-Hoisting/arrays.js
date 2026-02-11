@@ -14,5 +14,5 @@ console.log(students.shift());
 console.log(students.unshift("Sakshi"));
 // console.log(students);
 
-console.log(students.splice(2, 1));
-// console.log(students);
+console.log(students.splice(2, 3));
+console.log(students);
