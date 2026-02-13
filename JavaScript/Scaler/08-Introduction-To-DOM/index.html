@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .randomNumberContainer {
+            border: 1px solid black;
+            color: green;
+            text-align: center;
+            font-size: 50px;
+            margin: 2rem 0;
+            padding: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="heading">DOM</h1>
+
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+    </ul>
+
+    <div class="container">
+        <div class="parent">
+            <ul>
+                <li>Child 1</li>
+                <li>Child 2</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="parent">
+        Hello
+        <p>Some details here</p>
+        <a href="https://www.google.com">Go to google</a>
+    </div>
+
+    <div class="randomNumberContainer">
+        0
+    </div>
+
+    <!-- <button onclick="showRandomNumber()">Get random number</button> -->
+    <button>Get random number</button>
+
+    <script>
+        var title = "JS class"
+        console.log(title);
+        // If tree gets complex we won't be able to identify or fetch the nodes
+        console.log(document.children[0].children[0]);
+
+        const numberContainer = document.querySelector('.randomNumberContainer');
+
+        function showRandomNumber() {
+            numberContainer.textContent = Math.round(Math.random() * 10);
+        }
+
+        const buttonRef = document.querySelector('button');
+        buttonRef.addEventListener('click', function () {
+            showRandomNumber();
+        })
+    </script>
+</body>
+
+</html>
