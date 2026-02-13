@@ -52,8 +52,8 @@
     const cards = document.querySelectorAll('.card');
 
     cards.forEach(card => {
-        card.addEventListener('click', () => {
-            const color = card.getAttribute('data-color');
+        card.addEventListener('click', function () {
+            const color = this.getAttribute('data-color');
             card.classList.toggle(color);
         })
     })

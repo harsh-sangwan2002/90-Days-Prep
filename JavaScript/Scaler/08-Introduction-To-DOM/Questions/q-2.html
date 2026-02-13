@@ -10,7 +10,7 @@
 <body>
     <div>
         <span class="var1">5</span>
-        <span class="operator">x</span>
+        <span class="operator">+</span>
         <span class="var2">10</span>
         <span>=</span>
         <span class="result"></span>
@@ -20,29 +20,42 @@
 </body>
 
 <script>
-    const var1 = document.querySelector('.var1');
-    const var2 = document.querySelector('.var2');
-    const operator = document.querySelector('.operator');
-    const result = document.querySelector('.result');
+    const val1 = parseInt(document.querySelector('.var1').innerText);
+    const operator = document.querySelector('.operator').innerText;
+    const val2 = parseInt(document.querySelector('.var2').innerText);
+    const res = document.querySelector('.result');
+    const buttonRef = document.querySelector('button');
 
-    document.querySelector('button').addEventListener('click', () => {
-        switch (operator.textContent) {
-            case 'x':
-                result.textContent = parseFloat(var1.textContent) * parseFloat(var2.textContent);
+    console.log(val1, val2);
+
+    buttonRef.addEventListener('click', function () {
+
+        let val = 0;
+
+        switch (operator) {
+            case "+":
+                val = val1 + val2;
                 break;
-            case '+':
-                result.textContent = parseFloat(var1.textContent) + parseFloat(var2.textContent);
+
+            case "-":
+                val = val2 - val1;
                 break;
-            case '-':
-                result.textContent = parseFloat(var1.textContent) - parseFloat(var2.textContent);
+
+            case "*":
+                val = val1 * val2;
                 break;
-            case '/':
-                result.textContent = parseFloat(var1.textContent) / parseFloat(var2.textContent);
+
+            case "/":
+                val = val2 / val1;
                 break;
+
             default:
-                result.textContent = 'Unknown operator';
+                val = "Operator not allowed";
+                break;
         }
-    });
+
+        res.innerText = val;
+    })
 </script>
 
 </html>
