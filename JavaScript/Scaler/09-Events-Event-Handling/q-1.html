@@ -88,6 +88,7 @@
     <div class="container">
         <h1 class="heading">BookMyShow</h1>
         <select name="" id="">
+            <option value="all">All</option>
             <option value="action">Action</option>
             <option value="horror">Horror</option>
             <option value="comedy">Comedy</option>
@@ -140,25 +141,31 @@
 
 <script>
 
-    const select = document.querySelector("select");
-    const movies = document.querySelectorAll(".movie");
-    const removeMovieButtons = document.querySelectorAll(".remove-movie");
+    const selectRef = document.querySelector('select');
+    const removeRefList = document.querySelectorAll('.remove-movie');
+    const movies = document.querySelectorAll('.movie');
 
-    removeMovieButtons.forEach(button => {
-        button.addEventListener('click', e => {
-            const movie = e.target.parentElement;
-            movie.remove();
+    selectRef.addEventListener('change', e => {
+        console.log(e.target.value);
+        const genre = e.target.value.toLowerCase();;
+        movies.forEach(movie => {
+            const title = movie.querySelector('.movie-title').innerText;
+            const currGenre = title.split(":")[0].toLowerCase();
+
+            if (genre == 'all')
+                movie.style.display = "block";
+
+            else if (!genre.includes(currGenre))
+                movie.style.display = 'none';
+
+            else
+                movie.style.display = 'block';
         })
     })
 
-    select.addEventListener('change', e => {
-        const genre = e.target.value;
-        movies.forEach(movie => {
-            if (movie.querySelector(".movie-title").textContent.toLowerCase().includes(genre)) {
-                movie.style.display = "block";
-            } else {
-                movie.style.display = "none";
-            }
+    removeRefList.forEach(removeRef => {
+        removeRef.addEventListener('click', e => {
+            e.target.closest('.movie').style.display = "none";
         })
     })
 </script>
