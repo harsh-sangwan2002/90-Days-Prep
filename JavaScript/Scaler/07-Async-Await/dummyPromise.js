@@ -39,6 +39,7 @@ async function callDummyPromise() {
         console.log(err);
     }
 }
+// callDummyPromise();
 
 async function callDummyPromise() {
     try {

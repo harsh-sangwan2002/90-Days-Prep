@@ -22,7 +22,7 @@ try {
     const res = await Promise.race([
         createDummyPromise(1000, "First Promise"),
         createDummyPromise(2000, "Second Promise"),
-        createDummyPromise(6000, "Third Promise")
+        createDummyPromise(3000, "Third Promise")
     ]);
     console.log(res);
 

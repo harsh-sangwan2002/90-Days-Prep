@@ -21,7 +21,7 @@ function createDummyPromise(delay, message) {
 // Rejects if all promises are rejected
 try {
     const res = await Promise.any([
-        createDummyPromise(7000, "First Promise"),
+        createDummyPromise(2000, "First Promise"),
         createDummyPromise(8000, "Second Promise"),
         createDummyPromise(6000, "Third Promise")
     ]);
