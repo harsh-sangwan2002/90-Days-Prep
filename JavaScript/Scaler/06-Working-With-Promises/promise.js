@@ -1,5 +1,6 @@
 const res = new Promise(function (resolve, reject) {
 
+    console.log("Passing marks are 70");
     // Passing marks are 70%
     const passing_marks = 70, current_marks = 80;
 
@@ -10,16 +11,17 @@ const res = new Promise(function (resolve, reject) {
         reject('Failed!');
 })
 
+console.log(res);
+
 res.then(data => {
     console.log(data);
-    console.log(res);
 }).catch(err => {
     console.log(err);
-    console.log(res);
 })
 
 const toss = new Promise(function (res, rej) {
 
+    console.log("toss");
     const isHead = Math.random() > 0.5;
 
     if (isHead)
@@ -29,6 +31,7 @@ const toss = new Promise(function (res, rej) {
         rej('Promise rejected');
 })
 
+console.log(toss);
 toss.then(res => {
     console.log(res);
 }).catch(err => {
