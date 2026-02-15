@@ -1,4 +1,5 @@
 console.log(sum(1, 2, 3)); // 6
+
 // Named function declaration
 function sum(a, b, c) {
     let total = a + b + c;
