@@ -10,7 +10,7 @@ By default the TIL is Repeatable Read
 show variables like 'transaction_isolation';
 
 -- It will read uncommitted data from other transactions
-set session transaction isolation level repeatable read;
+set session transaction isolation level read uncommitted;
 
 Select * from film where film_id = 10;
 
