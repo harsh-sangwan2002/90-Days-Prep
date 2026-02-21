@@ -1,0 +1,8 @@
+package AdvanceProgrammingConcepts.OOPS.InterfaceAbstractClass04.Polymorphism;
+
+public class Cat {
+
+    public void meow(){
+        System.out.println("Meow");
+    }
+}
