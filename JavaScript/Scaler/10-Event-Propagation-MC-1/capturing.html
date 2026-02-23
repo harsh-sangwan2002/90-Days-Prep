@@ -59,27 +59,20 @@
     const container = document.querySelector('.container');
 
     container.addEventListener('click', e => {
-        // console.log("container-> ", e.target);
-        if (e.target.classList.contains('btn-plus')) {
-            const countRef = e.target.closest('.quantity').querySelector('.count');
-            let count = parseInt(countRef.innerText);
-            count++;
-            countRef.innerText = count;
-        }
-
-        if (e.target.classList.contains('btn-minus')) {
-            const countRef = e.target.closest('.quantity').querySelector('.count');
-            let count = parseInt(countRef.innerText);
-            if (count > 0) {
-                count--;
-                countRef.innerText = count;
-            }
-        }
+        console.log("container-> ", e.target);
     })
 
-    // document.addEventListener('click', e => {
-    //     console.log("document-> ", e.target);
-    // })
+    document.addEventListener('click', e => {
+        console.log("document-> ", e.target);
+    })
+
+    container.addEventListener('click', e => {
+        console.log("container capture-> ", e.target);
+    }, true)
+
+    document.addEventListener('click', e => {
+        console.log("document capture-> ", e.target);
+    }, true)
 </script>
 
 </html>
