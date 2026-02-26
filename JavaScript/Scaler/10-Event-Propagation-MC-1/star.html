@@ -45,41 +45,56 @@
 
 <script>
     const starsContainer = document.querySelector('.stars-container');
+    const ratingRef = document.querySelector('.rating');
 
     starsContainer.addEventListener('click', e => {
+        const element = e.target;
 
-        if (e.target.classList.contains('star')) {
-            const rating = e.target.getAttribute('data-index');
-            document.querySelector('.rating').innerText = rating;
+        if (element.classList.contains('star')) {
+            const idx = element.getAttribute('data-index');
 
-            for (let i = 0; i < rating; i++)
+            for (let i = 0; i < idx; i++)
                 starsContainer.children[i].classList.add('selected');
 
-            for (let i = rating; i < starsContainer.children.length; i++)
+            for (let i = idx; i < 5; i++)
                 starsContainer.children[i].classList.remove('selected');
+
+            ratingRef.innerText = idx;
         }
     })
 
     starsContainer.addEventListener('mouseover', e => {
-        if (e.target.classList.contains('star')) {
-            const rating = e.target.getAttribute('data-index');
 
-            for (let i = 0; i < rating; i++)
+        const element = e.target;
+        console.log(element);
+
+        if (element.classList.contains('star')) {
+
+            const idx = element.getAttribute('data-index');
+
+            for (let i = 0; i < idx; i++)
                 starsContainer.children[i].classList.add('selected');
 
-            for (let i = rating; i < starsContainer.children.length; i++)
+            for (let i = idx; i < 5; i++)
                 starsContainer.children[i].classList.remove('selected');
         }
     })
 
     starsContainer.addEventListener('mouseout', e => {
-        const currentRating = document.querySelector('.rating').innerText;
 
-        for (let i = 0; i < currentRating; i++)
-            starsContainer.children[i].classList.add('selected');
+        const element = e.target;
 
-        for (let i = currentRating; i < starsContainer.children.length; i++)
-            starsContainer.children[i].classList.remove('selected');
+        if (element.classList.contains('star')) {
+
+            const idx = element.getAttribute('data-index');
+            const rating = ratingRef.innerText;
+
+            for (let i = 0; i < idx; i++)
+                starsContainer.children[i].classList.remove('selected');
+
+            for (let i = 0; i < rating; i++)
+                starsContainer.children[i].classList.add('selected');
+        }
     })
 </script>
 
