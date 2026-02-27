@@ -16,8 +16,8 @@ function TestCar(model, price, color, tax) {
 }
 
 const BMW = TestCar("BMW", 30000, "Black", 2000);
-console.log(BMW.finalPrice()); // Outputs: 32000
-console.log(BMW instanceof TestCar); // Outputs: false
+// console.log(BMW.finalPrice()); // Outputs: 32000
+// console.log(BMW instanceof TestCar); // Outputs: false
 
 // Constructor function to create Car objects
 function Car(model, price, color, tax) {
@@ -57,8 +57,9 @@ SuperCar.prototype.displayInfo = function () {
 const Audi = new SuperCar("Audi R8", 150000, "White", 10000, 330);
 console.log(Audi);
 console.log(Audi.finalPrice());
+Audi.displayInfo();
 
 const Toyota = new Car("Toyota", 20000, "Red", 1500);
-console.log(Toyota);
-console.log(Toyota.finalPrice()); // Outputs: 21500
-console.log(Toyota instanceof Car); // Outputs: true
+// console.log(Toyota);
+// console.log(Toyota.finalPrice()); // Outputs: 21500
+// console.log(Toyota instanceof Car); // Outputs: true

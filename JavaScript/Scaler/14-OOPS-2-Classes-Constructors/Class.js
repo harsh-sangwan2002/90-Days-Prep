@@ -4,6 +4,7 @@ class Car {
     #privateField;
 
     constructor(brand, model, year) {
+        console.log("Car's constructor");
         this.brand = brand;
         this.model = model;
         this.year = year;
@@ -11,6 +12,7 @@ class Car {
     }
 
     displayInfo() {
+        console.log(this.#privateField);
         console.log(`Car: ${this.brand} ${this.model}, Year: ${this.year}`);
     }
 }
@@ -19,6 +21,7 @@ class SuperCar extends Car {
 
     constructor(brand, model, year, topSpeed) {
         super(brand, model, year);
+        console.log("SuperCar's constructor");
         this.topSpeed = topSpeed;
     }
 
@@ -30,9 +33,12 @@ class SuperCar extends Car {
 
 const Toyota = new Car('Toyota', 'Corolla', 2020);
 Toyota.displayInfo(); // Output: Car: Toyota Corolla, Year: 2020
+// console.log(Toyota.#privateField); // Error
+console.log(Toyota.noOfWheels); // undefined
+console.log(Car.noOfWheels);
 
 const Ferrari = new SuperCar('Ferrari', '488 GTB', 2021, 330);
-Ferrari.displayInfo();
+// Ferrari.displayInfo();
 // Output: 
 // Car: Ferrari 488 GTB, Year: 2021
 // Top Speed: 330 km/h
