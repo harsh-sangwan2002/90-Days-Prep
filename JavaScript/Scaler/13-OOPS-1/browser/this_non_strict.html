@@ -11,17 +11,17 @@
 </body>
 
 <script>
-    console.log(this); // window
+    // console.log(this); // window
 
     function fn() {
         console.log(this); // window
     }
-    fn();
+    // fn();
 
     let obj = {
         name: "John",
         test: function () {
-            console.log(this);
+            console.log(this); // obj
             function inner() {
                 console.log(this); // window
             }
@@ -33,14 +33,14 @@
             arrow();
         },
         arrow: () => {
-            console.log(this); // obj
+            console.log(this); // window
         }
     }
-    obj.test(); // obj
-    obj.arrow(); // window
+    // obj.test();
+    // obj.arrow();
 
     let newFn = obj.test;
-    // newFn(); // window
+    newFn(); // window
 
     let obj2 = {
         name: "Jane"
@@ -60,7 +60,7 @@
             outer();
         }
     }
-    obj3.test();
+    // obj3.test();
 </script>
 
 </html>
