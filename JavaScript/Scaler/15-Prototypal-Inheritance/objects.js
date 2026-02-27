@@ -21,3 +21,4 @@ const obj3 = Object.create(proto);
 console.log(obj3);
 console.log(obj3.protoProperty);
 // Cannot access properties with Object.keys() if they are inherited
+console.log(Object.keys(obj3));
