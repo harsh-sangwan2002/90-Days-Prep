@@ -8,4 +8,6 @@ console.log(a);
 
 // 2. assign Method
 var c = Object.assign({}, a);
-// console.log(c);
+b['x'] = 100;
+b['z']['m'] = 300;
+console.log(c);
