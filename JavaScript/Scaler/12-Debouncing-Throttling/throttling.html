@@ -49,7 +49,7 @@
     function updateScrollPosition() {
         document.getElementById('scrollPosition').textContent = window.scrollY;
     }
-    const throttledUpdateScrollPosition = throttleFn(updateScrollPosition, 500);
+    const throttledUpdateScrollPosition = throttleFn(updateScrollPosition, 2000);
     window.addEventListener('scroll', throttledUpdateScrollPosition);
 </script>
 
