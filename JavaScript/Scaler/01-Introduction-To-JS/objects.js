@@ -27,6 +27,7 @@ obj3[arr] = 'Array';
 console.log(obj3);
 
 var g = {};
+console.log(String(g));
 obj3[g] = "Object";
 console.log(obj3);
 

@@ -1,4 +1,4 @@
-// florr rounds off to the previos integer
+// floor rounds off to the previous integer
 // console.log(Math.floor(5)); // 5
 // console.log(Math.floor(5.4)); // 5
 // console.log(Math.floor(5.5)); // 5

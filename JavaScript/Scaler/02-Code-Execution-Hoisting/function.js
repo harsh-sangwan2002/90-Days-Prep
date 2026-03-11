@@ -33,5 +33,5 @@ function sum(a, b) {
     return fn;
 }
 
-console.log(typeof sum(1, 2));
-console.log(sum(1, 2)());
+console.log(typeof sum(1, 2)); // function
+console.log(sum(1, 2)()); // 3
