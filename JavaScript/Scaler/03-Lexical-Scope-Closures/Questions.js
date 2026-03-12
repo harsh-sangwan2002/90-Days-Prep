@@ -1,9 +1,9 @@
 // Question - 1
-function counter(arg) {
+function counter(arg1) {
 
     let count = 1;
 
-    if (arg === 0)
+    if (arg1 === 0)
         return count;
 
     return function inner(arg2) {
