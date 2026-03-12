@@ -1,3 +1,4 @@
+// Closure means function bundled with it's lexical environment
 function sum(x) {
     return function (y) {
         return x + y;
