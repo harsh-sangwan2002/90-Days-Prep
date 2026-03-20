@@ -11,6 +11,7 @@ console.log(String({})); // [object Object]
 console.log([] == {}); // false
 console.log({} == []); // false
 console.log([] == []); // false
+console.log({} == {}); // false
 console.log([] == ![]); // true
 
 console.log([] + {}); // [object Object]
