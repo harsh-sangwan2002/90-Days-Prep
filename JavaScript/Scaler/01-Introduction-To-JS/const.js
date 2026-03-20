@@ -1,5 +1,3 @@
-console.log(a);
-
-const a = 10;
-
-console.log(a);
+console.log(x); // ReferenceError
+const x = 20;
+console.log(x); // 20

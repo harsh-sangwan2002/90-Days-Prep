@@ -1,5 +1,3 @@
-console.log(a); // ReferenceError
-
-let a = 10;
-
-console.log(a);
+console.log(x); // ReferenceError
+let x = 20;
+console.log(x); // 20

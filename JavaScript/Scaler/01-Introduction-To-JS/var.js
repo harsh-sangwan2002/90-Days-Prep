@@ -1,5 +1,3 @@
-console.log(a); // undefined
-
-var a = 10;
-
-console.log(a); // 10
+console.log(x); // undefined
+var x = 20;
+console.log(x); // 20
