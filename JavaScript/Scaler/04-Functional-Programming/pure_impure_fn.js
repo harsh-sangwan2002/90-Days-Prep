@@ -1,4 +1,6 @@
+// Impure functions mutates the state of input parameters or external variables or objects. They have side-effects.
 // Impure function: modifies the input array
+// Pure functions gives same output for the same set of arguments evey time they are called.
 function sum(arr) {
     arr[0] = 20;
     let total = 0;
