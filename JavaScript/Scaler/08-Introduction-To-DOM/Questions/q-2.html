@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+
+<body>
+    <div>
+        <span class="var1">5</span>
+        <span class="operator">+</span>
+        <span class="var2">10</span>
+        <span>=</span>
+        <span class="result"></span>
+    </div>
+</body>
+
+<script>
+    const val1 = parseInt(document.querySelector('.var1').innerText);
+    const val2 = parseInt(document.querySelector('.var2').innerText);
+    const operator = document.querySelector('.operator').innerText;
+    const output = document.querySelector('.result');
+    let res = '';
+
+    switch (operator) {
+        case "+":
+            res = val1 + val2;
+            break;
+
+        case "-":
+            res = val1 - val2;
+            break;
+
+        case "*":
+            res = val1 * val2;
+            break;
+
+        case "/":
+            res = val1 / val2;
+            break;
+    }
+
+    output.innerText = res;
+</script>
+
+</html>
