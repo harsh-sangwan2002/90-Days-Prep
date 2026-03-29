@@ -4,3 +4,17 @@ Use testdb;
 Select batch_id, count(batch_id)
 From Students
 Group By batch_id;
+
+-- Wrong query - Contains nonaggregated columns
+Select *, count(*)
+From Students s
+Join Batches b
+On s.batch_id = b.id
+Group By b.name;
+
+Select b.name, count(*)
+From Students s
+Join Batches b
+On s.batch_id = b.id
+Where s.batch_id = 1
+Group By b.name;
