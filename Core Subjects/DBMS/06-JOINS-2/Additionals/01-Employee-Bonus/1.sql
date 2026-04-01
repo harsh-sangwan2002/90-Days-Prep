@@ -5,15 +5,17 @@ Return the bonus as 'NULL' if an employee doesn't have a bonus in bonus table.
 Return the result table sorted w.r.t. name of the employees in ascending order.
 NOTE : Carefully analyse the Sample output.
 */
-Select 
+Select
     e.name,
     b.bonus
-From 
-    Bonus b 
-Right Join
-    employee e 
+From
+    employee e
+Left Join
+    Bonus b
 On
-    b.empId = e.empId And
+    e.empId = b.empId
+Where
+    b.bonus Is Null or
     b.bonus < 1000
 Order By
     e.name;
