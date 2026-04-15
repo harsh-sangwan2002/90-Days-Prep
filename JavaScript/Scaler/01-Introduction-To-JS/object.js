@@ -25,4 +25,5 @@ console.log(obj2);
 console.log(obj2[true]); // 1
 console.log(obj2[null]); // undefined
 console.log(obj2[undefined]); // 2
+console.log(obj2['undefined']); // 2
 console.log(obj2['[1, 2]']); // array
