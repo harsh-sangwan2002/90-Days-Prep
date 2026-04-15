@@ -4,7 +4,10 @@ console.log("Ram" == "ram"); // false
 console.log(0 == 0); // true
 console.log(0 == null); // false
 console.log(0 == ""); // true
+console.log(NaN == NaN); // false
 console.log(null == undefined); // true
+console.log(null == null); // true
+console.log(null == NaN); // false
 console.log([] == []); // false
 console.log({} == {}); // false
 console.log([] == {}); // false
