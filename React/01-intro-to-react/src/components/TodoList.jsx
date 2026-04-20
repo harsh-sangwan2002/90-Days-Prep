@@ -1,34 +1,36 @@
-const Heading = ({ title, color }) => {
-    console.log(color);
+// The component's name must start with an uppercase letter
+function Heading({ name, color }) {
+
     return (
-        <h1 style={{ color: color }}>{title}</h1>
+        <h1 style={{ color: `${color}` }}>{name}</h1>
     )
 }
-const List = () => {
+
+function List() {
     return (
         <ul>
             <li>Item 1</li>
             <li>Item 2</li>
             <li>Item 3</li>
             <li>Item 4</li>
+            <li>Item 5</li>
         </ul>
     )
 }
-const Summary = () => {
+
+function Summary() {
     return (
-        <h3>Summary</h3>
+        <p>Summary</p>
     )
 }
 
-const TodoList = () => {
+export function TodoList() {
     return (
         <div>
-            <Heading title="First Heading" color="red" />
-            <Heading title="Second Heading" color="blue" />
+            <Heading name="Heading 1" color="red" />
+            <Heading name="Heading 2" color="green" />
             <List />
             <Summary />
         </div>
     )
 }
-
-export default TodoList
