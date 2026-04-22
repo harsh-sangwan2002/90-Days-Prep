@@ -1,0 +1,9 @@
+console.log("Ram" == "Ram"); // true
+console.log("Ram" == "ram"); // false
+console.log(1 == "Ram"); // false
+console.log(0 == null); // false
+console.log(null == undefined); // true
+console.log(0 == ""); // true
+console.log(null == null); // true
+console.log(undefined == undefined); // true
+console.log(NaN == NaN); // false
