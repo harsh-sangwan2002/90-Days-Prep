@@ -44,3 +44,9 @@ console.log("--------------------------------------------------------");
 // Doesn't modify the array
 console.log(students.slice(1, 2));
 console.log(students);
+
+const arr = [];
+arr[2] = 2;
+console.log(arr);
+// Items at 0 & 1 will be undefined
+console.log(arr[0], arr[1], arr[2]);
