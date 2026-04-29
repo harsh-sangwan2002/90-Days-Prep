@@ -39,3 +39,10 @@ console.log('--------------------------');
 var x = Symbol('123');
 console.log(x);
 console.log(typeof x); // symbol
+
+/*
+Number → always 64-bit
+String → ~2 bytes per character
+BigInt → variable size (depends on digits)
+Others → engine-dependent, no fixed size
+*/
