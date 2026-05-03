@@ -10,12 +10,13 @@ function sum(arr) {
 }
 
 let arr = [1, 2, 3, 4];
-console.log(sum(arr));
+// console.log(sum(arr));
 
 function sum1() {
     let arr = arguments, total = 0;
     arr[0] = 0;
 
+    console.log(arr, typeof arr);
     for (let i = 0; i < arr.length; i++)
         total += arr[i];
 
@@ -29,5 +30,5 @@ function sum2(a, b) {
     return a + b + c++;
 }
 
-console.log(sum2(1, 2));
-console.log(sum2(1, 2));
+// console.log(sum2(1, 2));
+// console.log(sum2(1, 2));
