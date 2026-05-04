@@ -2,7 +2,7 @@ use sakila;
 
 -- I want to bring all the movies that were release between 2007 and 2009
 Select * from film
-Where release_year >= 2007 and release_year <= 2009;
+Where release_year >= 2007 and release_year <= 200;
 
 -- Between selects from [a,b] => between a and b inclusive
 Select * from film
