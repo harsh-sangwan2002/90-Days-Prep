@@ -31,3 +31,8 @@ Values (1, 'Harsh', 'Sangwan', 1),
 Delete from Students Where id = 1;
 Delete from Batches Where id = 3;
 Delete from Batches Where id = 1;
+
+Truncate table Students;
+Truncate table Batches;
+
+Drop table Students;
