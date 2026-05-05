@@ -136,38 +136,7 @@
 </body>
 
 <script>
-    const selectRef = document.querySelector('select');
-    const moviesContainer = document.querySelector('.movies');
-    const movies = document.querySelectorAll('.movie');
 
-    moviesContainer.addEventListener('click', e => {
-
-        if (e.target.classList.contains('remove-icon')) {
-
-            e.target.closest('.movie').style.display = "none";
-        }
-    })
-
-    selectRef.addEventListener('change', e => {
-        const currGenre = e.target.value.toLowerCase();
-
-        if (currGenre == "all")
-            movies.forEach(movie => {
-                movie.style.display = 'flex';
-            })
-
-        else {
-            movies.forEach(movie => {
-                const genre = movie.querySelector('.title').innerText.toLowerCase();
-
-                if (currGenre == genre)
-                    movie.style.display = "flex";
-
-                else
-                    movie.style.display = "none";
-            })
-        }
-    })
 </script>
 
 </html>
