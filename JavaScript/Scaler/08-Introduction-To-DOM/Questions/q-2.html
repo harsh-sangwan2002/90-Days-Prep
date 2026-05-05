@@ -18,6 +18,31 @@
 </body>
 
 <script>
+    const val1 = Number(document.querySelector('.var1').innerText);
+    const val2 = Number(document.querySelector('.var2').innerText);
+    let ans = 0;
+    const res = document.querySelector('.result');
+    const operator = document.querySelector('.operator').innerText;
+
+    switch (operator) {
+        case "+":
+            ans = val1 + val2;
+            break;
+
+        case "-":
+            ans = val1 - val2;
+            break;
+
+        case "*":
+            ans = val1 * val2;
+            break;
+
+        case "/":
+            ans = val1 / val2;
+            break;
+    }
+
+    res.innerText = ans;
 </script>
 
 </html>

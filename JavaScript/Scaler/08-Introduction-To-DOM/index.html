@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Number</title>
+    <style>
+        .parent2 {
+            border: 1px solid black;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .parent2 h1 {
+            font-size: 3rem;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="heading">DOM</h1>
+
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+    </ul>
+
+    <div class="parent">
+        <p>Some details here</p>
+        <a href="https://www.google.com">Google</a>
+    </div>
+
+    <div class="parent2">
+        <h1></h1>
+    </div>
+
+    <button>Show Random Number</button>
+</body>
+
+<script>
+    var title = "First DOM class"
+    // alert(title);
+    console.log(document.getElementById('heading'));
+    console.log(document.getElementsByClassName('parent'));
+
+    const button = document.querySelector('button');
+    const number = document.querySelector('.parent2 h1');
+
+    function showRandomNumber() {
+        number.innerText = Math.trunc(Math.random() * 10);
+    }
+    button.addEventListener('click', showRandomNumber);
+</script>
+
+<!-- <script src="script.js"></script> -->
+
+</html>

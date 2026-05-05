@@ -55,7 +55,13 @@
 </body>
 
 <script>
+    const allCards = document.querySelectorAll('.card');
 
+    allCards.forEach(card => {
+        card.addEventListener('click', e => {
+            card.style.backgroundColor = e.target.getAttribute('data-color');
+        })
+    })
 </script>
 
 </html>
