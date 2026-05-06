@@ -21,6 +21,7 @@
         }
 
         .movies {
+            padding: 0 1rem;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -137,6 +138,31 @@
 
 <script>
 
+    const selectRef = document.querySelector('select');
+    const allMovies = document.querySelectorAll('.movie');
+    const removeIcons = document.querySelectorAll('.remove-icon');
+
+    selectRef.addEventListener('change', e => {
+
+        const currGenre = e.target.value.toLowerCase();
+
+        allMovies.forEach(movie => {
+            const movieGenre = movie.querySelector('.title').innerText.toLowerCase();
+
+            if (currGenre == movieGenre || currGenre == "all")
+                movie.style.display = "flex";
+
+            else
+                movie.style.display = "none";
+        })
+    })
+
+    removeIcons.forEach(remove => {
+
+        remove.addEventListener('click', e => {
+            e.target.closest('.movie').remove();
+        })
+    })
 </script>
 
 </html>

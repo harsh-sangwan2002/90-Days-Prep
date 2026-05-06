@@ -13,6 +13,19 @@
 
 <script>
 
+    const button = document.querySelector('button');
+
+    const toggleFullScreen = (e) => {
+
+        if (!document.fullscreenElement)
+            document.documentElement.requestFullscreen();
+
+        else
+            document.exitFullscreen();
+    }
+
+    button.addEventListener('click', toggleFullScreen);
+
 </script>
 
 </html>
