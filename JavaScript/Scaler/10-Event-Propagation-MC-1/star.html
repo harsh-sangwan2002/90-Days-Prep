@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Rating</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .container {
+            display: flex;
+            gap: 1rem;
+            font-size: 2rem;
+        }
+
+        .star {
+            cursor: pointer;
+            font-size: 2.5rem;
+        }
+
+        .selected {
+            color: gold;
+        }
+
+        h1 {
+            font-weight: bolder;
+        }
+
+        p {
+            font-weight: bolder;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Rate This Product</h1>
+    <div class="container">
+        <div class="star" data-index="1">★</div>
+        <div class="star" data-index="2">★</div>
+        <div class="star" data-index="3">★</div>
+        <div class="star" data-index="4">★</div>
+        <div class="star" data-index="5">★</div>
+    </div>
+    <p>Ratings: <span class="rating">0</span></p>
+</body>
+
+<script>
+    const container = document.querySelector('.container');
+    const stars = document.querySelectorAll('.star');
+    const rating = document.querySelector('.rating');
+
+    container.addEventListener('click', e => {
+
+        const element = e.target;
+        if (element.classList.contains('star')) {
+            const currIdx = element.getAttribute('data-index');
+
+            for (let i = 0; i < currIdx; i++)
+                stars[i].classList.add('selected');
+
+            for (let i = currIdx; i < stars.length; i++)
+                stars[i].classList.remove('selected');
+
+            rating.innerText = currIdx;
+        }
+    })
+
+    container.addEventListener('mouseover', e => {
+
+        const element = e.target;
+        if (element.classList.contains('star')) {
+            const currIdx = element.getAttribute('data-index');
+
+            for (let i = 0; i < currIdx; i++)
+                stars[i].classList.add('selected');
+
+            for (let i = currIdx; i < stars.length; i++)
+                stars[i].classList.remove('selected');
+        }
+    })
+
+    container.addEventListener('mouseout', e => {
+
+        const element = e.target;
+        if (element.classList.contains('star')) {
+            const currIdx = element.getAttribute('data-index');
+
+            for (let i = 0; i < rating.innerText; i++)
+                stars[i].classList.add('selected');
+
+            for (let i = rating.innerText; i < stars.length; i++)
+                stars[i].classList.remove('selected');
+        }
+    })
+</script>
+
+</html>

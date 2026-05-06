@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capturing</title>
+
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .container .row,
+        .quantity {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .container,
+        .row {
+            border: 1px solid #333;
+            padding: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Counter</h1>
+    <div class="container">
+        <div class="row">
+            <div class="title">Apple</div>
+            <div class="quantity">
+                <button class="decrement">-</button>
+                <span class="count">0</span>
+                <button class="increment">+</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="title">Mango</div>
+            <div class="quantity">
+                <button class="decrement">-</button>
+                <span class="count">0</span>
+                <button class="increment">+</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="title">Banana</div>
+            <div class="quantity">
+                <button class="decrement">-</button>
+                <span class="count">0</span>
+                <button class="increment">+</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    const containerRef = document.querySelector('.container');
+    const rowRef = document.querySelector('.row');
+
+    document.addEventListener('click', e => {
+        e.stopPropagation();
+        console.log('documentRef> ', e.target);
+    })
+
+    containerRef.addEventListener('click', e => {
+        e.stopPropagation();
+        console.log('containerRef> ', e.target);
+    }, true)
+
+    rowRef.addEventListener('click', e => {
+        e.stopPropagation();
+        console.log('rowRef> ', e.target);
+    })
+</script>
