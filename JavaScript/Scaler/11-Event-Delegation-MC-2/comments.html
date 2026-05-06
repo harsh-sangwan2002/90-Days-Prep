@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CommentBox</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            border: 1px solid #000;
+            padding: 2rem;
+        }
+
+        .comment {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            border-left: 1px solid #ccc;
+            padding-left: 0.7rem;
+        }
+
+        .comment button {
+            width: 3rem;
+        }
+
+        .comment textarea {
+            width: 100%;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="comment">
+
+        </div>
+    </div>
+</body>
+
+<script>
+
+    const comments = [
+        {
+            id: 1,
+            title: "Hi! How are you doing?",
+            replies: [
+                {
+                    id: 2,
+                    title: "I am doing fine, how about you?",
+                    replies: [
+                        {
+                            id: 3,
+                            title: "I am good too! Thanks for asking",
+                            replies: []
+                        }
+                    ]
+                }
+            ]
+        }, {
+            id: 4,
+            title: "I am watching FIFA",
+            replies: []
+        }
+    ]
+
+    const containerRef = document.querySelector('.container');
+
+    const createCommentCard = (id, title) => {
+        const commentRef = document.createElement('div');
+        commentRef.classList.add('comment');
+        commentRef.setAttribute('id', id);
+
+        commentRef.innerHTML =
+            `
+        <div class="title"><span class="id">${id}. </span>${title}</div>
+            <button class="reply">Reply</button>
+            <div class="new hide">
+                <textarea placeholder="Enter a reply..."></textarea>
+                <button class="send">Send</button>
+            </div>
+        `;
+
+        const replyRef = commentRef.querySelector('.reply');
+        const newRef = commentRef.querySelector('.new');
+        const textareaRef = commentRef.querySelector('textarea');
+        const sendButtonRef = commentRef.querySelector('.send');
+        let content = ''
+
+        replyRef.addEventListener('click', e => {
+            newRef.classList.toggle('hide');
+        })
+
+        textareaRef.addEventListener('input', e => {
+            content = e.target.value;
+        })
+
+        textareaRef.addEventListener('keydown', e => {
+            if (e.key == "Enter") {
+                if (content == '')
+                    return;
+
+                updateComments(comments, id, content);
+            }
+        })
+
+        sendButtonRef.addEventListener('click', () => {
+
+            if (content == '')
+                return;
+
+            updateComments(comments, id, content);
+        });
+
+        return commentRef;
+    }
+
+    const updateComments = (comments, id, content) => {
+
+        comments.forEach(comment => {
+
+            if (comment.id == id) {
+                const newComment = {
+                    id: Math.trunc(Math.random() * 1000),
+                    title: content,
+                    replies: []
+                }
+
+                if (comment?.replies)
+                    comment.replies.unshift(newComment);
+
+                else
+                    comment.replies = [newComment];
+
+                renderUI();
+            }
+
+            else if (comment?.replies)
+                updateComments(comment.replies, id, content);
+        })
+    }
+
+    const renderComments = (comments, parentRef) => {
+        comments.forEach(comment => {
+            const commentRef = createCommentCard(comment.id, comment.title);
+            parentRef.appendChild(commentRef);
+
+            if (comment?.replies)
+                renderComments(comment.replies, commentRef);
+        })
+    }
+
+    const renderUI = () => {
+
+        containerRef.innerHTML = ``;
+        renderComments(comments, containerRef);
+    }
+
+    renderUI();
+</script>
+
+</html>
