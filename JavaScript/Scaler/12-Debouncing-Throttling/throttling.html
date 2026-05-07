@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Throttling</title>
+    <style>
+        body {
+            height: 7000px;
+        }
+
+        .status {
+            width: 7rem;
+            position: sticky;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="status">Scroll Position: <span id="scrollPosition">0</span></div>
+</body>
+
+<script>
+    /* Throttling executes function after every small interval that is specified. 
+    
+    Use cases:
+        1) Scroll position tracking
+        2) Window re-sizing
+        3) Mouse movement tracking
+        4) Analytics tracking
+    */
+    function throttle(fn, delay) {
+        let flag = true;
+
+        return function (...args) {
+
+            if (!flag)
+                return;
+
+            flag = false;
+            setTimeout(() => {
+                fn(...args);
+                flag = true;
+            }, delay);
+        }
+    }
+
+    function updateScrollPosition() {
+        document.querySelector('#scrollPosition').innerText = window.scrollY;
+        console.log("Scrolled");
+    }
+
+    const throttledUpdateScrollPosition = debounce(updateScrollPosition, 1000);
+    window.addEventListener('scroll', throttledUpdateScrollPosition);
+</script>
+
+</html>
