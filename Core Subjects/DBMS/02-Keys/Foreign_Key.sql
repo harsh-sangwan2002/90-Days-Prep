@@ -1,9 +1,4 @@
-create database testdb;
-
 use testdb;
-
-drop table Batches;
-drop table Students;
 
 Create table Batches(
 id INT Primary Key,
@@ -28,11 +23,6 @@ Values (1, 'Harsh', 'Sangwan', 1),
 (2, 'Arvind', 'Sangwan', 1),
 (3, 'Vinay', 'Dabas', 2);
 
-Delete from Students Where id = 1;
-Delete from Batches Where id = 3;
+
 Delete from Batches Where id = 1;
-
-Truncate table Students;
-Truncate table Batches;
-
-Drop table Students;
+Delete from Batches Where id = 3;
