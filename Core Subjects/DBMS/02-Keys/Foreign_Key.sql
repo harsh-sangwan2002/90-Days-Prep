@@ -10,7 +10,8 @@ id INT AUTO_INCREMENT Primary Key,
 first_name VARCHAR(60) Not Null,
 last_name VARCHAR(60) Not Null,
 batch_id INT,
-Foreign Key (batch_id) References Batches(id) On Delete Cascade On Update Cascade
+Foreign Key (batch_id) References Batches(id) On Delete Cascade On
+Update Cascade
 );
 
 Insert Into Batches(id, name)
@@ -22,7 +23,6 @@ Insert Into Students
 Values (1, 'Harsh', 'Sangwan', 1),
 (2, 'Arvind', 'Sangwan', 1),
 (3, 'Vinay', 'Dabas', 2);
-
 
 Delete from Batches Where id = 1;
 Delete from Batches Where id = 3;
