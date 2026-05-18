@@ -1,4 +1,4 @@
-/* Impure functions modifies the state of the outer variables/objects which makes them to return difference output even when the same input parameters are passed */
+/* Impure functions modifies the state of the outer variables/objects which makes them to return differenct output even when the same input parameters are passed */
 function sum(arr) {
     let total = 0;
     arr[0] = 0;
